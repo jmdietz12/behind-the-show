@@ -1,0 +1,48 @@
+:: StoryTitle
+Behind The Show
+
+
+:: StoryData
+{
+  "ifid": "3187BB72-78E8-4572-A691-09E9FF3C88E7",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "Introduction",
+  "zoom": 1
+}
+
+
+:: Dies in Storm {"position":"950,375","size":"100,100"}
+High Ratings, Low Sponsors, Truman Doesn't Finds Out
+
+
+:: Divorce, He Lives a Life of Boredom {"position":"950,500","size":"100,100"}
+Low Ratings, Low Sponsors, Truman Doesn't Finds Out
+
+
+:: Having a Baby {"position":"950,250","size":"100,100"}
+High Ratings, High Sponsors, Truman Doesn't Finds Out
+
+
+:: Introduction {"position":"325,400","size":"100,100"}
+Intoduction
+
+
+:: Not Possible {"position":"825,250","size":"100,100"}
+High Ratings, High Sponsors, Truman Finds Out
+
+
+:: Sails to Exit {"position":"825,375","size":"100,100"}
+High Ratings, Low Sponsors, Truman Finds Out
+
+
+:: Show Continues With Kid {"position":"825,625","size":"100,100"}
+Low Ratings, High Sponsors, Truman Finds Out
+
+
+:: Show Gets Canceled {"position":"825,500","size":"100,100"}
+Low Ratings, Low Sponsors, Truman Finds Out
+
+
+:: Truman Goes Crazy {"position":"950,625","size":"100,100"}
+Low Ratings, High Sponsors, Truman Doesn't Finds Out
