@@ -12,11 +12,11 @@ Behind The Show
 }
 
 
-:: Dies in Storm {"position":"950,375","size":"100,100"}
+:: Dies in Storm {"position":"1200,250","size":"100,100"}
 High Ratings, Low Sponsors, Truman Doesn't Finds Out
 
 
-:: Divorce, He Lives a Life of Boredom {"position":"950,500","size":"100,100"}
+:: Divorce, He Lives a Life of Boredom {"position":"950,375","size":"100,100"}
 Low Ratings, Low Sponsors, Truman Doesn't Finds Out
 
 
@@ -31,7 +31,7 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
 
 
 :: Introduction {"position":"325,400","size":"100,100"}
-<<set $bg = "interview">>
+<<set $bg = "videoPanel">>
 
 <span class="top">Hello and welcome to our interview with the creator of the Truman show. How are you doing today?</span>
 
@@ -68,20 +68,20 @@ High Ratings, High Sponsors, Truman Finds Out
 <span class="bottom-right">[[*No Comment* ->Interuption]]</span>
 
 
-:: Sails to Exit {"position":"825,375","size":"100,100"}
+:: Sails to Exit {"position":"1075,250","size":"100,100"}
 High Ratings, Low Sponsors, Truman Finds Out
 
 
-:: Show Continues With Kid {"position":"825,625","size":"100,100"}
+:: Show Continues With Kid {"position":"1075,375","size":"100,100"}
 Low Ratings, High Sponsors, Truman Finds Out
 
 
-:: Show Gets Canceled {"position":"825,500","size":"100,100"}
+:: Show Gets Canceled {"position":"825,375","size":"100,100"}
 Low Ratings, Low Sponsors, Truman Finds Out
 
 
-:: TV Intro {"position":"325,1025","size":"100,100"}
-<<set $bg = "tvScreens">>
+:: TV Intro {"position":"500,400","size":"100,100"}
+<<set $bg = "videoPanel">>
 
 <<set $ratings = 50>>
 <<set $funding = 50>>
@@ -92,7 +92,7 @@ Low Ratings, Low Sponsors, Truman Finds Out
 <span class="top-right">Funding is $funding out of 100</span>
 
 
-:: Truman Goes Crazy {"position":"950,625","size":"100,100"}
+:: Truman Goes Crazy {"position":"1200,375","size":"100,100"}
 Low Ratings, High Sponsors, Truman Doesn't Finds Out
 
 
@@ -100,6 +100,7 @@ Low Ratings, High Sponsors, Truman Doesn't Finds Out
 const backgrounds = {
     interview: "https://jmdietz12.github.io/behind-the-show/images/interview.png",
     tvScreens: "https://jmdietz12.github.io/behind-the-show/images/tv-screens.png",
+  	videoPanel: "https://jmdietz12.github.io/behind-the-show/images/video-panel.png",
 };
 
 $(document).on(':passagerender', function () {
@@ -112,10 +113,9 @@ $(document).on(':passagerender', function () {
 
 :: StoryStylesheet [stylesheet]
 body {
-  background-size: cover;
+  background-size: auto 162%;
   background-position: top center;
   background-repeat: no-repeat;
-  height:100%;
   background-color: black;
   transition: background-image 0.5s ease-in-out;
 }
