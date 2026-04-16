@@ -31,7 +31,7 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
 
 
 :: Introduction {"position":"325,400","size":"100,100"}
-<<set $bg = "videoPanel">>
+<<set $bg = "interview">>
 
 <span class="top">Hello and welcome to our interview with the creator of the Truman show. How are you doing today?</span>
 
@@ -83,13 +83,19 @@ Low Ratings, Low Sponsors, Truman Finds Out
 :: TV Intro {"position":"500,400","size":"100,100"}
 <<set $bg = "videoPanel">>
 
-<<set $ratings = 50>>
-<<set $funding = 50>>
+<<set $ratings = 5>>
+<<set $funding = 5>>
 <<set $suspicion = 0>>
 
-<span class="top-left">Ratings are $ratings out of 100</span>
+<div class="top-left">
+  Ratings are $ratings out of 10
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
 
-<span class="top-right">Funding is $funding out of 100</span>
+<div class="top-right">
+  Funding is $funding out of 10
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
 
 
 :: Truman Goes Crazy {"position":"1200,375","size":"100,100"}
@@ -163,7 +169,7 @@ body {
   width: 35%;
   text-align: left;
   font-size: 30px;
-  color: black;
+  color: white;
   text-shadow: 2px 2px 4px white;
 }
 
@@ -174,6 +180,26 @@ body {
   width: 35%;
   text-align: right;
   font-size: 30px;
-  color: black;
+  color: white;
   text-shadow: 2px 2px 4px white;
+}
+
+.meter-fill.funding-color {
+  background-color: #2196F3; /* A nice UI Blue */
+}
+
+.meter-container {
+  width: 300px;
+  height: 25px;
+  background-color: #222;
+  border: 2px solid white;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  width: 0%;
+  background-color: #4CAF50; 
+  transition: width 0.4s ease-in-out;
 }
