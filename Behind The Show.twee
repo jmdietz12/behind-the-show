@@ -5,8 +5,8 @@ Behind The Show
 :: StoryData
 {
   "ifid": "3187BB72-78E8-4572-A691-09E9FF3C88E7",
-  "format": "Harlowe",
-  "format-version": "3.3.9",
+  "format": "SugarCube",
+  "format-version": "2.37.3",
   "start": "Introduction",
   "zoom": 1
 }
@@ -25,14 +25,19 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
 
 
 :: Interuption {"position":"325,900","size":"100,100"}
+<span class="top">Oh no! Something just happened!</span>
 
+<span class="bottom-left">[[I have to go->TV Intro]]</span>
 
 
 :: Introduction {"position":"325,400","size":"100,100"}
-Hello and welcome to our interview with the creator of the Truman show. How are you doing today?
+<<set $bg = "interview">>
 
-[[Good->Question 1]]
-[[Busy, but we'll get through it ->Question 1]]
+<span class="top">Hello and welcome to our interview with the creator of the Truman show. How are you doing today?</span>
+
+<span class="bottom-left">[[Good->Question 1]]</span>
+
+<span class="bottom-right">[[Busy, but we'll get through it ->Question 1]]</span>
 
 
 :: Not Possible {"position":"825,250","size":"100,100"}
@@ -40,27 +45,27 @@ High Ratings, High Sponsors, Truman Finds Out
 
 
 :: Question 1 {"position":"325,525","size":"100,100"}
-The Truman Show is a world wide phenomenon, with fans from around the globe. Did you ever expect it to get this big?
+<span class="top">The Truman Show is a world wide phenomenon, with fans from around the globe. Did you ever expect it to get this big?</span>
 
-[[Yes, when I came up with the idea of having a main actor who has no idea he is in a show, I knew it would be a huge success. ->Question 2]]
+<span class="bottom-left">[[Yes, when I came up with the idea of having a main actor who has no idea he is in a show, I knew it would be a huge success. ->Question 2]]</span>
 
-[[No, I could have never seen this amount of success. ->Question 2]]
+<span class="bottom-right">[[No, I could have never seen this amount of success. ->Question 2]]</span>
 
 
 :: Question 2 {"position":"325,650","size":"100,100"}
-How do you keep this show running 24 hours a day, 365 days a year?
+<span class="top">How do you keep this show running 24 hours a day, 365 days a year?</span>
 
-[[Well, having sponsorships placed around the world help us out a lot and make it so we don't have to run commercials. ->Question 3]]
+<span class="bottom-left">[[Well, having sponsorships placed around the world help us out a lot and make it so we don't have to run commercials. ->Question 3]]</span>
 
-[[That's a little industry secret, and a lot of hard work. ->Question 3]]
+<span class="bottom-right">[[That's a little industry secret, and a lot of hard work. ->Question 3]]</span>
 
 
 :: Question 3 {"position":"325,775","size":"100,100"}
-Have you ever had any concerns about having a person be trapped in a TV show set, not knowing what the rest of reality is like?
+<span class="top">Have you ever had any concerns about having a person be trapped in a TV show set, not knowing what the rest of reality is like?</span>
 
-[[No, of course not. He is living a life most of us would die for. ->Interuption]]
+<span class="bottom-left">[[No, of course not. He is living a life most of us would die for. ->Interuption]]</span>
 
-[[*No Comment* ->Interuption]]
+<span class="bottom-right">[[*No Comment* ->Interuption]]</span>
 
 
 :: Sails to Exit {"position":"825,375","size":"100,100"}
@@ -75,19 +80,31 @@ Low Ratings, High Sponsors, Truman Finds Out
 Low Ratings, Low Sponsors, Truman Finds Out
 
 
+:: TV Intro {"position":"325,1025","size":"100,100"}
+<<set $bg = "tvScreens">>
+
+<<set $ratings = 50>>
+<<set $funding = 50>>
+<<set $suspicion = 0>>
+
+<span class="top-left">Ratings are $ratings out of 100</span>
+
+<span class="top-right">Funding is $funding out of 100</span>
+
+
 :: Truman Goes Crazy {"position":"950,625","size":"100,100"}
 Low Ratings, High Sponsors, Truman Doesn't Finds Out
 
 
 :: StoryScript [script]
 const backgrounds = {
-    forest: "forest.jpg",
-    castle: "castle.jpg",
-    cave: "cave.jpg"
+    interview: "https://jmdietz12.github.io/behind-the-show/images/interview.png",
+    tvScreens: "https://jmdietz12.github.io/behind-the-show/images/tv-screens.png",
 };
 
 $(document).on(':passagerender', function () {
-    let bg = State.variables.bg;
+    const bg = State.variables.bg;
+
     if (backgrounds[bg]) {
         document.body.style.backgroundImage = `url('${backgrounds[bg]}')`;
     }
@@ -96,6 +113,64 @@ $(document).on(':passagerender', function () {
 :: StoryStylesheet [stylesheet]
 body {
   background-size: cover;
-  background-position: center;
-  transition: background 0.5s ease;
+  background-position: top center;
+  background-repeat: no-repeat;
+  height:100%;
+  background-color: black;
+  transition: background-image 0.5s ease-in-out;
+}
+
+.top {
+  position: center;
+  top: 1%;
+  width: 80%;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: black;
+  text-shadow: 2px 2px 4px white;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  width: 35%;
+  text-align: left;
+  font-size: 30px;
+  color: black;
+  text-shadow: 2px 2px 4px white;
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  width: 35%;
+  text-align: right;
+  font-size: 30px;
+  color: black;
+  text-shadow: 2px 2px 4px white;
+}
+
+.top-left {
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  width: 35%;
+  text-align: left;
+  font-size: 30px;
+  color: black;
+  text-shadow: 2px 2px 4px white;
+}
+
+.top-right {
+  position: absolute;
+  top: 5%;
+  right: 10%;
+  width: 35%;
+  text-align: right;
+  font-size: 30px;
+  color: black;
+  text-shadow: 2px 2px 4px white;
 }
