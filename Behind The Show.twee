@@ -12,6 +12,22 @@ Behind The Show
 }
 
 
+:: Breakfast {"position":"625,525","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
+<span class="textbox">Truman reaches for the bread to make toast. However, there is a sponsorship with Cheerios that needs to be obligated.</span>
+
+<span class="bottom-left">[[Have Meryl grab the Cheerios and give them to Truman ->Get Dressed][$sponsor += 1]]</span>
+
+<span class="bottom-right">[[Let him eat toast ->Get Dressed][$sponsor -= 1]]</span>
+
+
 :: Dies in Storm {"position":"1200,250","size":"100,100"}
 High Ratings, Low Sponsors, Truman Doesn't Finds Out
 
@@ -20,12 +36,22 @@ High Ratings, Low Sponsors, Truman Doesn't Finds Out
 Low Ratings, Low Sponsors, Truman Doesn't Finds Out
 
 
+:: Get Dressed {"position":"625,650","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
+
 :: Having a Baby {"position":"950,250","size":"100,100"}
 High Ratings, High Sponsors, Truman Doesn't Finds Out
 
 
 :: Interuption {"position":"325,900","size":"100,100"}
-<span class="top">Oh no! Something just happened!</span>
+<span class="textbox">Oh no! Something just happened!</span>
 
 <span class="bottom-left">[[I have to go->TV Intro]]</span>
 
@@ -33,7 +59,7 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
 :: Introduction {"position":"325,400","size":"100,100"}
 <<set $bg = "interview">>
 
-<span class="top">Hello and welcome to our interview with the creator of the Truman show. How are you doing today?</span>
+<span class="textbox">Hello and welcome to our interview with the creator of the Truman show. How are you doing today?</span>
 
 <span class="bottom-left">[[Good->Question 1]]</span>
 
@@ -45,7 +71,7 @@ High Ratings, High Sponsors, Truman Finds Out
 
 
 :: Question 1 {"position":"325,525","size":"100,100"}
-<span class="top">The Truman Show is a world wide phenomenon, with fans from around the globe. Did you ever expect it to get this big?</span>
+<span class="textbox">The Truman Show is a world wide phenomenon, with fans from around the globe. Did you ever expect it to get this big?</span>
 
 <span class="bottom-left">[[Yes, when I came up with the idea of having a main actor who has no idea he is in a show, I knew it would be a huge success. ->Question 2]]</span>
 
@@ -53,7 +79,7 @@ High Ratings, High Sponsors, Truman Finds Out
 
 
 :: Question 2 {"position":"325,650","size":"100,100"}
-<span class="top">How do you keep this show running 24 hours a day, 365 days a year?</span>
+<span class="textbox">How do you keep this show running 24 hours a day, 365 days a year?</span>
 
 <span class="bottom-left">[[Well, having sponsorships placed around the world help us out a lot and make it so we don't have to run commercials. ->Question 3]]</span>
 
@@ -61,7 +87,7 @@ High Ratings, High Sponsors, Truman Finds Out
 
 
 :: Question 3 {"position":"325,775","size":"100,100"}
-<span class="top">Have you ever had any concerns about having a person be trapped in a TV show set, not knowing what the rest of reality is like?</span>
+<span class="textbox">Have you ever had any concerns about having a person be trapped in a TV show set, not knowing what the rest of reality is like?</span>
 
 <span class="bottom-left">[[No, of course not. He is living a life most of us would die for. ->Interuption]]</span>
 
@@ -80,6 +106,22 @@ Low Ratings, High Sponsors, Truman Finds Out
 Low Ratings, Low Sponsors, Truman Finds Out
 
 
+:: Start Suspicion {"position":"500,525","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
+<span class="textbox">A cleaning crew is sent out to take care of the light. Truman wonders what they are doing.</span>
+
+<span class="bottom-left">[[Have them hurry off fast once cleaned up ->Breakfast][$suspicion += 1]]</span>
+
+<span class="bottom-right">[[Have a worker yell to Truman about cleaning up a branch that fell->Breakfast]]</span>
+
+
 :: TV Intro {"position":"500,400","size":"100,100"}
 <<set $bg = "videoPanel">>
 
@@ -88,14 +130,18 @@ Low Ratings, Low Sponsors, Truman Finds Out
 <<set $suspicion = 0>>
 
 <div class="top-left">
-  Ratings are $ratings out of 10
   <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
 </div>
 
 <div class="top-right">
-  Funding is $funding out of 10
   <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
 </div>
+
+<span class="textbox">Truman wakes up to a crash sound outside.</span>
+
+<span class="bottom-left">[[Have clean up crew retrieve it as fast as possible ->Start Suspicion][$suspicion += 1]]</span>
+
+<span class="bottom-right">[[Do Nothing ->Breakfast]]</span>
 
 
 :: Truman Goes Crazy {"position":"1200,375","size":"100,100"}
@@ -129,43 +175,49 @@ body {
   transition: background-image 0.5s ease-in-out;
 }
 
-.top {
-  position: center;
-  top: 1%;
-  width: 80%;
-  text-align: center;
-  font-size: 40px;
-  font-weight: bold;
-  color: black;
-  text-shadow: 2px 2px 4px white;
-}
-
 .bottom-left {
   position: absolute;
   bottom: 10%;
-  left: 10%;
-  width: 35%;
+  left: 17%;
+  width: 25%;
   text-align: left;
-  font-size: 30px;
-  color: black;
-  text-shadow: 2px 2px 4px white;
+
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+
+  padding: 20px;
+  border: 2px solid white;
+
+  display: inline-block;
+  text-align: center;
+  font-family: "Silkscreen";
+
+  font-size: 18px;
 }
 
 .bottom-right {
   position: absolute;
   bottom: 10%;
-  right: 10%;
-  width: 35%;
-  text-align: right;
-  font-size: 30px;
-  color: black;
-  text-shadow: 2px 2px 4px white;
+  right: 17%;
+  width: 25%;
+
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+
+  padding: 20px;
+  border: 2px solid white;
+
+  display: inline-block;
+  text-align: center;
+  font-family: "Silkscreen";
+
+  font-size: 18px;
 }
 
 .top-left {
   position: absolute;
-  top: -5%;
-  left: 20%;
+  top: 0%;
+  left: 29%;
   width: 25%;
   text-align: left;
   font-size: 30px;
@@ -175,8 +227,8 @@ body {
 
 .top-right {
   position: absolute;
-  top: -5%;
-  right: 20%;
+  top: 0%;
+  right: 19%;
   width: 25%;
   text-align: right;
   font-size: 30px;
@@ -184,8 +236,27 @@ body {
   text-shadow: 2px 2px 4px white;
 }
 
+.textbox {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+
+  padding: 20px;
+  border: 2px solid white;
+
+  display: inline-block;
+  text-align: center;
+  font-family: "Silkscreen";
+
+  font-size: 24px;
+}
+
 .meter-fill.funding-color {
-  background-color: #2196F3; /* A nice UI Blue */
+  background-color: #FFEE00
 }
 
 .meter-container {
@@ -200,6 +271,13 @@ body {
 .meter-fill {
   height: 100%;
   width: 0%;
-  background-color: #4CAF50; 
+  background-color: #FFEE00;
   transition: width 0.4s ease-in-out;
+}
+
+@font-face {
+	font-family: "Silkscreen";
+	src: url(https://jmdietz12.github.io/behind-the-show/font/slkscr.ttf);
+	font-style: normal;
+	font-weight: normal;
 }
