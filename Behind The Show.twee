@@ -28,11 +28,25 @@ Behind The Show
 <span class="bottom-right">[[Let him eat toast ->Get Dressed][$funding -= 1]]</span>
 
 
-:: Dies in Storm {"position":"1200,250","size":"100,100"}
+:: Detergent Product Placement {"position":"925,725","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
+<span class="textbox">A marketing team for Dawn comes in and shows that their soap can wash out permanent marker from fabric</span>
+
+<span class="bottom-left">[[Continue ->Truman Goes Home][$funding += 1][$ratings -= 1]]</span>
+
+
+:: Dies in Storm {"position":"1475,200","size":"100,100"}
 High Ratings, Low Sponsors, Truman Doesn't Finds Out
 
 
-:: Divorce, He Lives a Life of Boredom {"position":"950,375","size":"100,100"}
+:: Divorce, He Lives a Life of Boredom {"position":"1225,325","size":"100,100"}
 Low Ratings, Low Sponsors, Truman Doesn't Finds Out
 
 
@@ -50,6 +64,20 @@ Low Ratings, Low Sponsors, Truman Doesn't Finds Out
 <span class="bottom-left">[[Fix the radio and have the radio broadcaster claim it was atmospheric interference ->Newspaper stand][$suspicion += 1]]</span>
 
 <span class="bottom-right">[[Have two cars crash into eachother infront of him ->Newspaper stand][$ratings += 1, $funding -= 1]]</span>
+
+
+:: Extra Fired {"position":"1050,725","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
+<span class="textbox">A police officer runs in and tackles the extra and tells Truman that he is wanted for forging signatures. The extra is arrested and taken away.</span>
+
+<span class="bottom-left">[[Continue ->Truman Goes Home][$ratings += 1][$suspicion += 1]]</span>
 
 
 :: Get Dressed {"position":"500,650","size":"100,100"}
@@ -89,7 +117,7 @@ Low Ratings, Low Sponsors, Truman Doesn't Finds Out
 <</if>>
 
 
-:: Having a Baby {"position":"950,250","size":"100,100"}
+:: Having a Baby {"position":"1225,200","size":"100,100"}
 High Ratings, High Sponsors, Truman Doesn't Finds Out
 
 
@@ -109,6 +137,17 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
 <span class="bottom-right">[[Busy, but we'll get through it ->Question 1]]</span>
 
 
+:: Lauren Appears {"position":"1400,600","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
+
+
 :: Looks at light {"position":"625,900","size":"100,100"}
 <div class="top-left">
   <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
@@ -123,7 +162,7 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
 <span class="bottom-left">[[Continue ->Drive off][$suspicion += 2]]</span>
 
 
-:: Newspaper stand {"position":"500,1025","size":"100,100"}
+:: Neighbor Wants more Screentime {"position":"1800,600","size":"100,100"}
 <div class="top-left">
   <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
 </div>
@@ -133,8 +172,51 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
 </div>
 
 
-:: Not Possible {"position":"825,250","size":"100,100"}
+
+:: Newspaper stand {"position":"500,1025","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
+<span class="textbox">Truman gets out of his car and heads to the newspaper stand. He is looking at the sports magazines.</span>
+
+<span class="bottom-left">[[Ask him if he would like to get the sports magazine. ->Work]]</span>
+
+<span class="bottom-right">[[Recommend the advertiser's magazine: Daily Life ->Work][$suspicion += 1, $funding += 1]]</span>
+
+
+:: Not Possible {"position":"1100,200","size":"100,100"}
 High Ratings, High Sponsors, Truman Finds Out
+
+
+:: Old Friend {"position":"1200,600","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
+
+<span class="textbox">Truman and Marlon are at the beach, talking and laughing with each other.</span>
+
+<span class="bottom-left">[[Continue ->Truman Gets Deep]]</span>
+
+
+:: Product Placement {"position":"1600,600","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
 
 
 :: Question 1 {"position":"325,525","size":"100,100"}
@@ -161,20 +243,33 @@ High Ratings, High Sponsors, Truman Finds Out
 <span class="bottom-right">[[*No Comment* ->Interuption]]</span>
 
 
-:: Sails to Exit {"position":"1075,250","size":"100,100"}
+:: Rogue Extra {"position":"1000,600","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
+
+<span class="textbox">Truman is grocery shopping when an extra goes off script and starts trying to get Truman to sign a t-shirt</span>
+
+<span class="bottom-left">[[Distract with a product placement ->Detergent Product Placement]]</span>
+
+<span class="bottom-right">[[Fire the extra ->Extra Fired]]</span>
+
+
+:: Sails to Exit {"position":"1350,200","size":"100,100"}
 High Ratings, Low Sponsors, Truman Finds Out
 
 
-:: Show Continues With Kid {"position":"1075,375","size":"100,100"}
+:: Show Continues With Kid {"position":"1350,325","size":"100,100"}
 Low Ratings, High Sponsors, Truman Finds Out
 
 
-:: Show Gets Canceled {"position":"825,375","size":"100,100"}
+:: Show Gets Canceled {"position":"1100,325","size":"100,100"}
 Low Ratings, Low Sponsors, Truman Finds Out
-
-<span class="textbox">Truman approaches the light. He takes a look at it, scanning to see where it came from. He sees no traffic lights missing or planes.</span>
-
-<span class="bottom-left">[[Continue ->Not Possible][$suspicion += 2]]</span>
 
 
 :: Start Suspicion {"position":"650,400","size":"100,100"}
@@ -215,8 +310,61 @@ Low Ratings, Low Sponsors, Truman Finds Out
 <span class="bottom-right">[[Do Nothing ->Breakfast]]</span>
 
 
-:: Truman Goes Crazy {"position":"1200,375","size":"100,100"}
+:: Truman Calls Marlon {"position":"1000,975","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
+
+<span class="textbox">Truman walks over to his phone and calls his best friend Marlon. They agree to go hang out at the beach.</span>
+
+<span class="bottom-left">[[Continue ->Old Friend]]</span>
+
+
+:: Truman Gets Deep {"position":"1200,725","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
+
+<span class="textbox">Truman looks at Marlon and asks him what he's doing here.</span>
+
+
+:: Truman Goes Crazy {"position":"1475,325","size":"100,100"}
 Low Ratings, High Sponsors, Truman Doesn't Finds Out
+
+
+:: Truman Goes Home {"position":"1000,850","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
+
+<span class="textbox">Truman gets back home and sits on his couch.</span>
+
+<span class="bottom-left">[[Continue ->Truman Calls Marlon]]</span>
+
+
+:: Work {"position":"500,1150","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
 
 
 :: StoryScript [script]
