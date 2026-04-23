@@ -172,6 +172,10 @@ Low Ratings, High Sponsors, Truman Finds Out
 :: Show Gets Canceled {"position":"825,375","size":"100,100"}
 Low Ratings, Low Sponsors, Truman Finds Out
 
+<span class="textbox">Truman approaches the light. He takes a look at it, scanning to see where it came from. He sees no traffic lights missing or planes.</span>
+
+<span class="bottom-left">[[Continue ->Not Possible][$suspicion += 2]]</span>
+
 
 :: Start Suspicion {"position":"650,400","size":"100,100"}
 <div class="top-left">
