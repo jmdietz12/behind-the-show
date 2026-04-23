@@ -234,12 +234,18 @@ Low Ratings, High Sponsors, Truman Doesn't Finds Out
   <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
 </div>
 
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
+<span class="textbox">Truman enters into work</span>
+
 
 :: StoryScript [script]
 const backgrounds = {
     interview: "https://jmdietz12.github.io/behind-the-show/images/interview.png",
     tvScreens: "https://jmdietz12.github.io/behind-the-show/images/tv-screens.png",
-  	videoPanel: "https://jmdietz12.github.io/behind-the-show/images/video-panel.png",
+  	videoPanel: "https://jmdietz12.github.io/behind-the-show/images/video_panel_blank.png",
 };
 
 $(document).on(':passagerender', function () {
@@ -303,8 +309,8 @@ body {
 
 .top-left {
   position: absolute;
-  top: 0%;
-  left: 29%;
+  top: 0.3%;
+  left: 28.7%;
   width: 25%;
   text-align: left;
   font-size: 30px;
@@ -314,8 +320,8 @@ body {
 
 .top-right {
   position: absolute;
-  top: 0%;
-  right: 19%;
+  top: 0.3%;
+  right: 18.8%;
   width: 25%;
   text-align: right;
   font-size: 30px;
@@ -348,10 +354,8 @@ body {
 
 .meter-container {
   width: 300px;
-  height: 25px;
-  background-color: #222;
-  border: 2px solid white;
-  border-radius: 5px;
+  height: 18px;
+  background-color: #525273;
   overflow: hidden;
 }
 
