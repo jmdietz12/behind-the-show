@@ -132,6 +132,12 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
   <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
 </div>
 
+<span class="textbox">Truman gets out of his car and heads to the newspaper stand. He is looking at the sports magazines.</span>
+
+<span class="bottom-left">[[Ask him if he would like to get the sports magazine. ->Work]]</span>
+
+<span class="bottom-right">[[Recommend the advertiser's magazine: Daily Life ->Work][$suspicion += 1, $funding += 1]]</span>
+
 
 :: Not Possible {"position":"825,250","size":"100,100"}
 High Ratings, High Sponsors, Truman Finds Out
@@ -213,6 +219,16 @@ Low Ratings, Low Sponsors, Truman Finds Out
 
 :: Truman Goes Crazy {"position":"1200,375","size":"100,100"}
 Low Ratings, High Sponsors, Truman Doesn't Finds Out
+
+
+:: Work {"position":"500,1150","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
 
 
 :: StoryScript [script]
