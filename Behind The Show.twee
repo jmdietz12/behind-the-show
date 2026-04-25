@@ -8,8 +8,23 @@ Behind The Show
   "format": "SugarCube",
   "format-version": "2.37.3",
   "start": "Introduction",
-  "zoom": 1
+  "zoom": 0.6
 }
+
+
+:: Apologies For the Inconvenience {"position":"1675,975","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
+
+<span class="textbox">Truman starts yelling, asking what's going on and what they are doing to her. A paremedic turns to Truman and says, "I'm so sorry, sir. This patient escaped the Seaside Psychiatric Ward earlier this morning. She's been having severe delusions. She thinks everyone's an actor. Don't worry. She's getting the help she needs now."</span>
+
+<span class="bottom-left">[[Continue|Truman Goes Back Home][$suspicion += 3, $ratings += 2]]</span>
 
 
 :: Breakfast {"position":"500,525","size":"100,100"}
@@ -28,6 +43,20 @@ Behind The Show
 <span class="bottom-right">[[Let him eat toast ->Get Dressed][$funding -= 1]]</span>
 
 
+:: Cheers {"position":"1225,975","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
+<span class="textbox">Truman reminisces and sighs, saying "Yeah. . . I guess you're right. Cheers to that." Marlon takes a sip and says "Now THAT is a beer!"</span>
+
+<span class="bottom-left">[[Continue ->Truman Goes to Bed][$funding += 1]]</span>
+
+
 :: Detergent Product Placement {"position":"925,725","size":"100,100"}
 <div class="top-left">
   <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
@@ -39,7 +68,7 @@ Behind The Show
 
 <span class="textbox">A marketing team for Dawn comes in and shows that their soap can wash out permanent marker from fabric</span>
 
-<span class="bottom-left">[[Continue ->Truman Goes Home][$funding += 1][$ratings -= 1]]</span>
+<span class="bottom-left">[[Continue ->Truman Goes Home][$funding += 1, $ratings -= 1]]</span>
 
 
 :: Dies in Storm {"position":"1475,200","size":"100,100"}
@@ -48,6 +77,21 @@ High Ratings, Low Sponsors, Truman Doesn't Finds Out
 
 :: Divorce, He Lives a Life of Boredom {"position":"1225,325","size":"100,100"}
 Low Ratings, Low Sponsors, Truman Doesn't Finds Out
+
+
+:: Dream Protocol {"position":"1525,850","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
+
+<span class="textbox">The feed cuts away to show Marlon promoting merchandise for the show. Men in black suits rush in to grab Lauren and quickly sedate Truman. The team moves Truman to his bed, where he sleeps for a few hours.</span>
+
+<span class="bottom-left">[[Continue|Truman Wakes Up]]</span>
 
 
 :: Drive off {"position":"500,900","size":"100,100"}
@@ -66,7 +110,7 @@ Low Ratings, Low Sponsors, Truman Doesn't Finds Out
 <span class="bottom-right">[[Have two cars crash into eachother infront of him ->Newspaper stand][$ratings += 1, $funding -= 1]]</span>
 
 
-:: Extra Fired {"position":"1050,725","size":"100,100"}
+:: Extra Fired {"position":"1075,725","size":"100,100"}
 <div class="top-left">
   <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
 </div>
@@ -77,7 +121,7 @@ Low Ratings, Low Sponsors, Truman Doesn't Finds Out
 
 <span class="textbox">A police officer runs in and tackles the extra and tells Truman that he is wanted for forging signatures. The extra is arrested and taken away.</span>
 
-<span class="bottom-left">[[Continue ->Truman Goes Home][$ratings += 1][$suspicion += 1]]</span>
+<span class="bottom-left">[[Continue|Truman Goes Home][$ratings += 1, $suspicion += 1]]</span>
 
 
 :: Get Dressed {"position":"500,650","size":"100,100"}
@@ -121,6 +165,21 @@ Low Ratings, Low Sponsors, Truman Doesn't Finds Out
 High Ratings, High Sponsors, Truman Doesn't Finds Out
 
 
+:: Insane Patient Protocol {"position":"1675,850","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
+
+<span class="textbox">A team of doctors and paramedics rush onto the scene and grab Lauren. One of the doctors pulls out a syringe and injects Lauren. She mumbles "Fiji. . . Find me in Fiji. . . " before going limp.</span>
+
+<span class="bottom-left">[[Continue|Apologies For the Inconvenience]]</span>
+
+
 :: Interuption {"position":"325,900","size":"100,100"}
 <span class="textbox">Oh no! Something just happened!</span>
 
@@ -137,7 +196,7 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
 <span class="bottom-right">[[Busy, but we'll get through it ->Question 1]]</span>
 
 
-:: Lauren Appears {"position":"1400,600","size":"100,100"}
+:: Lauren {"position":"1600,725","size":"100,100"}
 <div class="top-left">
   <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
 </div>
@@ -146,6 +205,27 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
   <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
 </div>
 
+
+<span class="textbox">The woman is Lauren, and she is trying to reveal to Truman that is life is being televised. She says, "Truman! You have to listen to me! None of this is real! This is a set! They're watching everything! Christof—"</span>
+
+<span class="bottom-left">[[Activate Dream Protocol|Dream Protocol]]</span>
+
+<span class="bottom-right">[[Activate Insane Patient Protocol|Insane Patient Protocol]]</span>
+
+
+:: Lauren Appears {"position":"1600,600","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
+
+<span class="textbox">Truman is walking through the town square. Suddenly, a woman starts running at Truman, grabbing his arms and yelling at him.</span>
+
+<span class="bottom-left">[[Continue ->Lauren]]</span>
 
 
 :: Looks at light {"position":"625,900","size":"100,100"}
@@ -162,7 +242,7 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
 <span class="bottom-left">[[Continue ->Drive off][$suspicion += 2]]</span>
 
 
-:: Neighbor Wants more Screentime {"position":"1800,600","size":"100,100"}
+:: Neighbor Wants more Screentime {"position":"2200,600","size":"100,100"}
 <div class="top-left">
   <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
 </div>
@@ -170,7 +250,6 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
 <div class="top-right">
   <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
 </div>
-
 
 
 :: Newspaper stand {"position":"500,1025","size":"100,100"}
@@ -189,12 +268,25 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
 <span class="bottom-right">[[Recommend the advertiser's magazine: Daily Life ->Work][$suspicion += 1, $funding += 1]]</span>
 
 
+:: Nostalgia & Beer {"position":"1225,850","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
+<span class="textbox">Marlon puts his hand on Truman's shoulder and says, "Man, you know what does look real? A cool, crisp can of Penn Pavel's Beer. Remember when we spent that summer building the tree house? Stuff like that matters because we make it matter. So cheers to that.</span>
+
+<span class="bottom-left">[[Continue ->Cheers][$ratings += 1, $suspicion += 1]]</span>
+
 
 :: Not Possible {"position":"1100,200","size":"100,100"}
 High Ratings, High Sponsors, Truman Finds Out
 
 
-:: Old Friend {"position":"1200,600","size":"100,100"}
+:: Old Friend {"position":"1300,600","size":"100,100"}
 <div class="top-left">
   <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
 </div>
@@ -209,7 +301,7 @@ High Ratings, High Sponsors, Truman Finds Out
 <span class="bottom-left">[[Continue ->Truman Gets Deep]]</span>
 
 
-:: Product Placement {"position":"1600,600","size":"100,100"}
+:: Plug Sponsor {"position":"1525,1100","size":"100,100"}
 <div class="top-left">
   <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
 </div>
@@ -218,6 +310,20 @@ High Ratings, High Sponsors, Truman Finds Out
   <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
 </div>
 
+
+<span class="textbox">Truman says, "It felt so real." Meryl responds by saying, "The only real thing is that bump on your head. Here. Here, the doctor said you should take two Nurophen-Plus. Fast-acting relief for when life hits you a little too hard." Truman takes the painkillers and falls back asleep.</span>
+
+<span class="bottom-left">[[Continue|The Next Day] [$suspicion += 2, $funding += 2]</span>
+
+
+:: Product Placement {"position":"1900,600","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
 
 
 :: Question 1 {"position":"325,525","size":"100,100"}
@@ -254,7 +360,7 @@ High Ratings, High Sponsors, Truman Finds Out
 </div>
 
 
-<span class="textbox">Truman is grocery shopping when an extra goes off script and starts trying to get Truman to sign a t-shirt</span>
+<span class="textbox">An extra in the grocery store is trying to get Truman to sign his t-shirt.</span>
 
 <span class="bottom-left">[[Distract with a product placement ->Detergent Product Placement]]</span>
 
@@ -326,7 +432,7 @@ Low Ratings, Low Sponsors, Truman Finds Out
 <span class="bottom-left">[[Continue ->Old Friend]]</span>
 
 
-:: Truman Gets Deep {"position":"1200,725","size":"100,100"}
+:: Truman Gets Deep {"position":"1300,725","size":"100,100"}
 <div class="top-left">
   <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
 </div>
@@ -336,7 +442,25 @@ Low Ratings, Low Sponsors, Truman Finds Out
 </div>
 
 
-<span class="textbox">Truman looks at Marlon and asks him what he's doing here.</span>
+<span class="textbox">Truman's laugh fades. He says, "Marlon. Do you ever feel like nothing we do actually matters? Sometimes I look out at the water, and it doesn't even look real. . . "</span>
+
+<span class="bottom-left">[[Tell Marlon to distract Truman with nostalgia and beer ->Nostalgia & Beer]]</span>
+<span class="bottom-right">[[Have Marlon tell Truman he's crazy ->You're Acting Crazy]]</span>
+
+
+:: Truman Goes Back Home {"position":"1675,1100","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
+
+<span class="textbox">Truman goes back home. It's clear he's still thinking about the Lauren incident. That night, it takes Truman a while to fall asleep.</span>
+
+<span class="bottom-left">[[Continue|Product Placement]]</span>
 
 
 :: Truman Goes Crazy {"position":"1475,325","size":"100,100"}
@@ -344,7 +468,34 @@ Low Ratings, High Sponsors, Truman Doesn't Finds Out
 
 
 :: Truman Goes Home {"position":"1000,850","size":"100,100"}
-:: Work {"position":"500,1150","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
+<span class="textbox">Truman goes back home and sits in the kitchen for a while thinking to himself.</span>
+
+<span class="bottom-left">[[Continue|Truman Calls Marlon]]</span>
+
+
+:: Truman Goes to Bed {"position":"1300,1100","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
+<span class="textbox">The night ends, and Truman decides to head back home and go to bed.</span>
+
+<span class="bottom-left">[[Continue|Lauren Appears]]</span>
+
+
+:: Truman Wakes Up {"position":"1525,975","size":"100,100"}
 <div class="top-left">
   <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
 </div>
@@ -354,9 +505,9 @@ Low Ratings, High Sponsors, Truman Doesn't Finds Out
 </div>
 
 
-<span class="textbox">Truman gets back home and sits on his couch.</span>
+<span class="textbox">Truman wakes up, holding his head. He mumbles, "Lauren. . . Where's Lauren? Where am I?" Meryl rubs his back and says, "Oh Truman, you need to be more careful. Don't you remember? You tripped over a loose stone in the town square and hit your head. You've been in and out of nightmares all day."</span>
 
-<span class="bottom-left">[[Continue ->Truman Calls Marlon]]</span>
+<span class="bottom-left">[[Continue|Plug Sponsor]]</span>
 
 
 :: Work {"position":"500,1150","size":"100,100"}
@@ -369,6 +520,22 @@ Low Ratings, High Sponsors, Truman Doesn't Finds Out
 </div>
 
 <span class="textbox">Truman enters into work</span>
+
+<span class="bottom-left">[[Continue|Rogue Extra]]</span>
+
+
+:: You're Acting Crazy {"position":"1375,850","size":"100,100"}
+<div class="top-left">
+  <div class="meter-container"><<print '<div class="meter-fill" style="width:' + ($ratings * 10) + '%;"></div>'>></div>
+</div>
+
+<div class="top-right">
+  <div class="meter-container" style="margin-left: auto;"><<print '<div class="meter-fill funding-color" style="width:' + ($funding * 10) + '%;"></div>'>></div>
+</div>
+
+<span class="textbox">Marlon looks at Truman with a concerned expression and says, "Hey, you're starting so scare me, man. Are you okay? This isn't normal behavior. I think you should go talk to someone because you sound crazy right now. I don't even know what to say to you."</span>
+
+<span class="bottom-left">[[Continue ->Truman Goes to Bed][$suspicion += 2]]</span>
 
 
 :: StoryScript [script]
