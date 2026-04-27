@@ -254,7 +254,7 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
 </div>
 
 
-<span class="textbox">A team of doctors and paramedics rush onto the scene and grab Lauren. One of the doctors pulls out a syringe and injects Lauren. She mumbles "Fiji. . . Find me in Fiji. . . " before going limp.</span>
+<span class="textbox">A team of doctors and paramedics rush onto the scene and grab Lauren. One of the doctors pulls out a syringe and injects Lauren. She mumbles "Fiji . . . Find me in Fiji . . . " before going limp.</span>
 
 <span class="bottom-left">[[Continue|Apologies For the Inconvenience]]</span>
 
@@ -285,7 +285,7 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
 </div>
 
 
-<span class="textbox">The woman is Lauren, and she is trying to reveal to Truman that is life is being televised. She says, "Truman! You have to listen to me! None of this is real! This is a set! They're watching everything! Christof—"</span>
+<span class="textbox">The woman is Lauren, and she is trying to reveal to Truman that his life is being televised. She says, "Truman! You have to listen to me! None of this is real! This is a set! They're watching everything! Christof—"</span>
 
 <span class="bottom-left">[[Activate Dream Protocol|Dream Protocol]]</span>
 
@@ -302,7 +302,7 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
 </div>
 
 
-<span class="textbox">Truman is walking through the town square. Suddenly, a woman starts running at Truman, grabbing his arms and yelling at him.</span>
+<span class="textbox">The next day, Truman is walking through the town square. Suddenly, a woman starts running at Truman, grabbing his arms and yelling at him.</span>
 
 <span class="bottom-left">[[Continue ->Lauren]]</span>
 
@@ -416,7 +416,7 @@ High Ratings, High Sponsors, Truman Finds Out
 </div>
 
 
-<span class="textbox">Truman says, "It felt so real." Meryl responds by saying, "The only real thing is that bump on your head. Here. Here, the doctor said you should take two 'Nurophen-Plus'. Fast-acting relief for when life hits you a little too hard." Truman takes the painkillers and falls back asleep.</span>
+<span class="textbox">Truman says, "It felt so real." Meryl responds by saying, "The only real thing is that bump on your head. Here. The doctor said you should take two 'Nurophen-Plus'. Fast-acting relief for when life hits you a little too hard." Truman takes the painkillers and falls back asleep.</span>
 
 <span class="bottom-left">[[Continue|Product Placement][$suspicion += 2, $funding += 2]]</span
 
