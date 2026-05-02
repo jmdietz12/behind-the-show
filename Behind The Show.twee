@@ -124,6 +124,26 @@ Behind The Show
 High Ratings, Low Sponsors, Truman Doesn't Finds Out
 
 
+:: Dinner {"position":"500,1525","size":"100,100"}
+<<set $scene = "house">>
+<div class="ratingsBar">
+  <div class="meter-container">
+    <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
+  </div>
+</div>
+<div class="fundingBar">
+  <div class="meter-container" style="margin-left: auto;">
+    <<print '<div class="meter-fill funding-color" style="height:' + ($funding * 10) + '%;"></div>'>>
+  </div>
+</div>
+
+<span class="textbox">Truman walks down the stairs. He asks what is for dinner.</span>
+
+<span class="bottom-left">[[Have Meryl say "Only the Best Honey Baked Ham"->Rogue Extra][$funding += 1]]</span>
+
+<span class="bottom-right">[[Have Meryl say they are ordering Pizza ->Rogue Extra][$funding -= 1]]</span>
+
+
 :: Divorce, He Lives a Life of Boredom {"position":"1225,325","size":"100,100"}
 Low Ratings, Low Sponsors, Truman Doesn't Finds Out
 
@@ -202,6 +222,26 @@ Low Ratings, Low Sponsors, Truman Doesn't Finds Out
 <span class="textbox">You declined to force a product placement at this time and ended the call. Your assistant informs you that 'Happy Earth Lasagna' has decided to decrease their support for 'The Truman Show'.</span>
 
 <span class="bottom-left">[[Continue|Truman Leaves the House][$funding -= 1]]</span>
+
+
+:: End of Day {"position":"500,1275","size":"100,100"}
+<<set $scene = "car">>
+<div class="ratingsBar">
+  <div class="meter-container">
+    <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
+  </div>
+</div>
+<div class="fundingBar">
+  <div class="meter-container" style="margin-left: auto;">
+    <<print '<div class="meter-fill funding-color" style="height:' + ($funding * 10) + '%;"></div>'>>
+  </div>
+</div>
+
+<span class="textbox">On the way back from work, Truman decides to take a new way home. However, there are no extras in that area, so it will look abandoned.</span>
+
+<span class="bottom-left">[[Have construction workers put constructions workers in the middle of the neighborhood.->New Path]]</span>
+
+<span class="bottom-right">[[Have cars come in and block his path ->Remember][$suspicion += 1]]</span>
 
 
 :: Extra Fired {"position":"1075,725","size":"100,100"}
@@ -418,6 +458,26 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
 <span class="bottom-right">[[Eliminate the Character|Eliminate]]</span>
 
 
+:: New Path {"position":"625,1400","size":"100,100"}
+<<set $scene = "car">>
+<div class="ratingsBar">
+  <div class="meter-container">
+    <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
+  </div>
+</div>
+<div class="fundingBar">
+  <div class="meter-container" style="margin-left: auto;">
+    <<print '<div class="meter-fill funding-color" style="height:' + ($funding * 10) + '%;"></div>'>>
+  </div>
+</div>
+
+<span class="textbox">When Truman gets stopped by construction. He roles down his window. He decides to ask what the workers are working on.</span>
+
+<span class="bottom-left">[[Have them say they are demolishing this neighborhood ->Remember][$suspicion += 1]]</span>
+
+<span class="bottom-right">[[Say they are filling in a pothole ->Remember]]</span>
+
+
 :: Newspaper stand {"position":"500,1025","size":"100,100"}
 <<set $scene = "townSquare">>
 <div class="ratingsBar">
@@ -490,6 +550,8 @@ High Ratings, High Sponsors, Truman Finds Out
   </div>
 </div>
 
+<span class="textbox">Truman doesn't find out. He goes on to live the rest of his life in this fake world.</span>
+
 
 :: Plug Sponsor {"position":"1725,1100","size":"100,100"}
 <div class="ratingsBar">
@@ -551,6 +613,26 @@ High Ratings, High Sponsors, Truman Finds Out
 <span class="bottom-left">[[No, of course not. He is living a life most of us would die for. ->Interuption]]</span>
 
 <span class="bottom-right">[[*No Comment* ->Interuption]]</span>
+
+
+:: Remember {"position":"500,1400","size":"100,100"}
+<<set $scene = "house">>
+<div class="ratingsBar">
+  <div class="meter-container">
+    <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
+  </div>
+</div>
+<div class="fundingBar">
+  <div class="meter-container" style="margin-left: auto;">
+    <<print '<div class="meter-fill funding-color" style="height:' + ($funding * 10) + '%;"></div>'>>
+  </div>
+</div>
+
+<span class="textbox">Truman gets back home. As he is putting stuff away, he knocks off a photo frame of his family when he was younger onto the floor. As he picks it up he starts staring at his dad, who passed away when he was younger.</span>
+
+<span class="bottom-left">[[Cue a sentimental score to enhance scene for audience->Dinner][$ratings += 1]]</span>
+
+<span class="bottom-right">[[Have Meryl Call Out for Dinner->Dinner][$ratings -= 1]]</span>
 
 
 :: Rogue Extra {"position":"1000,600","size":"100,100"}
@@ -798,9 +880,11 @@ Low Ratings, High Sponsors, Truman Doesn't Finds Out
   </div>
 </div>
 
-<span class="textbox">Truman enters into work</span>
+<span class="textbox">Truman enters into work. He goes to his desk. Instead of starting to do work, he takes out a magazine. He takes a look at some island locations.</span>
 
-<span class="bottom-left">[[Continue|Rogue Extra]]</span>
+<span class="bottom-left">[[Have a manager come over and to do a project ->End of Day][$ratings -= 1]]</span>
+
+<span class="bottom-right">[[Don't interupt and let it play out ->End of Day][$ratings += 1]]</span>
 
 
 :: You're Acting Crazy {"position":"1475,850","size":"100,100"}
