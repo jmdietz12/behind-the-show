@@ -12,7 +12,7 @@ Behind The Show
 }
 
 
-:: Answer the Call {"position":"1825,725","size":"100,100"}
+:: Answer the Call {"position":"2100,725","size":"100,100"}
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -27,11 +27,11 @@ Behind The Show
 
 <span class="textbox">They are demanding a product placement for their Family-size lasagna right now while Truman isn't doing anything. It would be hard to force a product placement right now, but it could be done.</span>
 
-<span class="bottom-left">[[Force Placement|Force Placement]]</span>
-<span class="bottom-right">[[Decline|Decline]]</span>
+<span class="bottom-left">[[Force Placement->Force Placement]]</span>
+<span class="bottom-right">[[Refuse Placement->End Call]]</span>
 
 
-:: Apologies For the Inconvenience {"position":"1675,975","size":"100,100"}
+:: Apologies For the Inconvenience {"position":"1875,975","size":"100,100"}
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -50,9 +50,6 @@ Behind The Show
 
 
 :: Breakfast {"position":"500,525","size":"100,100"}
-
-
-
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -71,7 +68,7 @@ Behind The Show
 <span class="bottom-right">[[Let him eat toast ->Get Dressed][$funding -= 1]]</span>
 
 
-:: Cheers {"position":"1225,975","size":"100,100"}
+:: Cheers {"position":"1325,975","size":"100,100"}
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -88,7 +85,27 @@ Behind The Show
 <span class="bottom-left">[[Continue ->Truman Goes to Bed][$funding += 1]]</span>
 
 
-:: Decline {"position":"1975,725","size":"100,100"}
+:: Commute {"position":"800,1400","size":"100,100"}
+<<set $scene = "car">>
+<div class="ratingsBar">
+  <div class="meter-container">
+    <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
+  </div>
+</div>
+<div class="fundingBar">
+  <div class="meter-container" style="margin-left: auto;">
+    <<print '<div class="meter-fill funding-color" style="height:' + ($funding * 10) + '%;"></div>'>>
+  </div>
+</div>
+
+<span class="textbox">The next day on the way to work, Truman puts on the radio. </span>
+
+<span class="bottom-left">[[Put on a new song that a music studio is paying for->Radio][$funding -= 1]]</span>
+
+<span class="bottom-right">[[Put on Truman's favorite song ->Song][$ratings += 1]]</span>
+
+
+:: Decline {"position":"2275,725","size":"100,100"}
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -103,7 +120,7 @@ Behind The Show
 
 <span class="textbox">You did not answer the call. Your assistant tells you that 'Happy Earth Lasagna' has decided to stop sponsoring 'The Truman Show'.</span>
 
-<span class="bottom-left">[[Continue|Truman Leaves the House][$funding -= 2]]</span>
+<span class="bottom-left">[[Continue ->Truman Leaves the House][$funding -= 2]]</span>
 
 
 :: Detergent Product Placement {"position":"925,725","size":"100,100"}
@@ -140,18 +157,18 @@ High Ratings, Low Sponsors, Truman Doesn't Finds Out
   </div>
 </div>
 
-<span class="textbox">Truman walks down the stairs. He asks what is for dinner.</span>
+<span class="textbox">Truman walks down the stairs. He asks Meryl what is for dinner.</span>
 
-<span class="bottom-left">[[Have Meryl say "Only the Best Honey Baked Ham"->Rogue Extra][$funding += 1]]</span>
+<span class="bottom-left">[[Have Meryl say "Only the Best Honey Baked Ham"->Night][$funding += 1]]</span>
 
-<span class="bottom-right">[[Have Meryl say they are ordering Pizza ->Rogue Extra][$funding -= 1]]</span>
+<span class="bottom-right">[[Have Meryl say they are ordering Pizza ->Night][$funding -= 1]]</span>
 
 
 :: Divorce, He Lives a Life of Boredom {"position":"1225,325","size":"100,100"}
 Low Ratings, Low Sponsors, Truman Doesn't Finds Out
 
 
-:: Dream Protocol {"position":"1525,850","size":"100,100"}
+:: Dream Protocol {"position":"1725,850","size":"100,100"}
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -164,7 +181,7 @@ Low Ratings, Low Sponsors, Truman Doesn't Finds Out
 </div>
 
 
-<span class="textbox">The feed cuts away to show Marlon promoting merchandise for the show. Men in black suits rush in to grab Lauren and quickly sedate Truman. The team moves Truman to his bed, where he sleeps for a few hours.</span>
+<span class="textbox">The feed cuts away to show Marlon promoting merchandise for the show. Men in black suits rush in to grab Lauren and quickly sedate Truman.</span>
 
 <span class="bottom-left">[[Continue|Truman Wakes Up]]</span>
 
@@ -190,7 +207,8 @@ Low Ratings, Low Sponsors, Truman Doesn't Finds Out
 <span class="bottom-right">[[Have two cars crash into eachother infront of him ->Newspaper stand][$ratings += 1, $funding -= 1]]</span>
 
 
-:: Eliminate {"position":"2275,725","size":"100,100"}
+:: Eliminate {"position":"2675,725","size":"100,100"}
+<<set $scene = "driveway">>
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -203,12 +221,12 @@ Low Ratings, Low Sponsors, Truman Doesn't Finds Out
 </div>
 
 
-<span class="textbox">You refuse to negotiate the actor's contract. You tell the writers to write off the neighbor character. When Truman walks by the neighbor's house, there is a moving truck and there is a new neighbor there. The new neighbor tells Truman that the old neighbor moved away for work.</span>
+<span class="textbox">You refuse to negotiate the actor's contract. You tell the writers to write off the neighbor character. When Truman steps outside, there is a moving truck and a new neighbor moving in. The new neighbor tells Truman that the old neighbor moved away for work.</span>
 
-<span class="bottom-left">[[Continue|Truman Finishes Walk][$suspicion += 1]]</span>
+<span class="bottom-left">[[Continue|Truman Finishes Walk][$ratings -= 1, $suspicion += 1]]</span>
 
 
-:: End Call {"position":"1900,975","size":"100,100"}
+:: End Call {"position":"2175,850","size":"100,100"}
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -223,7 +241,7 @@ Low Ratings, Low Sponsors, Truman Doesn't Finds Out
 
 <span class="textbox">You declined to force a product placement at this time and ended the call. Your assistant informs you that 'Happy Earth Lasagna' has decided to decrease their support for 'The Truman Show'.</span>
 
-<span class="bottom-left">[[Continue|Truman Leaves the House][$funding -= 1]]</span>
+<span class="bottom-left">[[Continue ->Truman Leaves the House][$funding -= 1]]</span>
 
 
 :: End of Day {"position":"500,1275","size":"100,100"}
@@ -263,7 +281,27 @@ Low Ratings, Low Sponsors, Truman Doesn't Finds Out
 <span class="bottom-left">[[Continue|Truman Goes Home][$ratings += 1, $suspicion += 1]]</span>
 
 
-:: Force Placement {"position":"1825,850","size":"100,100"}
+:: Father {"position":"825,1125","size":"100,100"}
+<<set $scene = "townSquare">>
+<div class="ratingsBar">
+  <div class="meter-container">
+    <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
+  </div>
+</div>
+<div class="fundingBar">
+  <div class="meter-container" style="margin-left: auto;">
+    <<print '<div class="meter-fill funding-color" style="height:' + ($funding * 10) + '%;"></div>'>>
+  </div>
+</div>
+
+<span class="textbox"> Truman parks his car. As he gets out, a homeless man approaches him. He looks a lot like his father who died when he was younger.</span>
+
+<span class="bottom-left">[[Police appear and claim that he’s a local amnesiac->Work Again][$suspicion += 1, $ratings += 1]]</span>
+
+<span class="bottom-right">[[Swarm of people start running away from some “emergency” and sweep dad away ->Work Again][$suspicion, $ratings -= 1]]</span>
+
+
+:: Force Placement {"position":"2050,850","size":"100,100"}
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -278,14 +316,28 @@ Low Ratings, Low Sponsors, Truman Doesn't Finds Out
 
 <span class="textbox">You get the sponsor script to the actress who plays Meryl. Meryl barges into Truman's room holding a hot tray of 'Happy Earth Lasagna' and says, "Nothing brings a husband back to earth like the cheesy goodness of a 'Happy Earth Lasagna'!"</span>
 
-<span class="bottom-left">[[Continue|Truman Leaves the House][$suspicion += 1, $funding += 1, $ratings -= 1]]</span>
-<span class="bottom-right">[[End Call|End Call]]</span>
+<span class="bottom-left">[[Continue ->Truman Leaves the House][$suspicion += 1, $funding += 1, $ratings -= 1]]</span>
+
+
+:: FundingEnding {"position":"1600,1300","size":"100,100"}
+<div class="ratingsBar">
+  <div class="meter-container">
+    <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
+  </div>
+</div>
+<div class="fundingBar">
+  <div class="meter-container" style="margin-left: auto;">
+    <<print '<div class="meter-fill funding-color" style="height:' + ($funding * 10) + '%;"></div>'>>
+  </div>
+</div>
+
+<span class="textbox">Sponsors are unhappy with the advertisements. Due to having no funding, the show is forced to be canceled.</span>
+
+<span class="bottom-left">[[Start Over ->TV Intro]]</span>
+
 
 
 :: Get Dressed {"position":"500,650","size":"100,100"}
-
-
-
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -334,7 +386,7 @@ Low Ratings, Low Sponsors, Truman Doesn't Finds Out
 High Ratings, High Sponsors, Truman Doesn't Finds Out
 
 
-:: Insane Patient Protocol {"position":"1675,850","size":"100,100"}
+:: Insane Patient Protocol {"position":"1875,850","size":"100,100"}
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -369,7 +421,7 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
 <span class="bottom-right">[[Busy, but we'll get through it ->Question 1]]</span>
 
 
-:: Lauren {"position":"1600,725","size":"100,100"}
+:: Lauren {"position":"1800,725","size":"100,100"}
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -389,7 +441,8 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
 <span class="bottom-right">[[Activate Insane Patient Protocol|Insane Patient Protocol]]</span>
 
 
-:: Lauren Appears {"position":"1600,600","size":"100,100"}
+:: Lauren Appears {"position":"1800,600","size":"100,100"}
+<<set $scene = "townSquare">>
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -426,7 +479,7 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
 <span class="bottom-left">[[Continue ->Drive off][$suspicion += 2]]</span>
 
 
-:: Make a Deal {"position":"2075,850","size":"100,100"}
+:: Make a Deal {"position":"2475,850","size":"100,100"}
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -439,12 +492,12 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
 </div>
 
 
-<span class="textbox">You agree to a deal that will make it so this actor will do more product placements from now on.</span>
+<span class="textbox">You agree to a deal that will make it so this actor will do more product placements from now on. Truman begins his walk and waves to his neighbor, who is about to go on a run with his new pair of Brooks Glycerin GTS 23.</span>
 
 <span class="bottom-left">[[Continue|Truman Finishes Walk][$funding += 1]]</span>
 
 
-:: Neighbor Wants More Screentime {"position":"2200,600","size":"100,100"}
+:: Neighbor Wants More Screentime {"position":"2600,600","size":"100,100"}
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -457,7 +510,7 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
 </div>
 
 
-<span class="textbox">While Truman is on his walk around the neighborhood, you get another call, but this time it's from an actor's agent. The actor wants to negotiate their contract for either a raise or more screentime. They are threatening to expose the truth to Truman.</span>
+<span class="textbox">While Truman preparing for his walk, you get another call, but this time it's from the actor who plays Truman's neighbor. The actor wants to negotiate their contract for either a raise or more screentime. They are threatening to expose the truth to Truman if you don't agree before Truman leaves his house.</span>
 
 <span class="bottom-left">[[Make a Deal|Make a Deal]]</span>
 <span class="bottom-right">[[Eliminate the Character|Eliminate]]</span>
@@ -476,11 +529,11 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
   </div>
 </div>
 
-<span class="textbox">When Truman gets stopped by construction. He roles down his window. He decides to ask what the workers are working on.</span>
+<span class="textbox">When Truman gets stopped by construction. He rolls down his window. He decides to ask what the workers are working on.</span>
 
 <span class="bottom-left">[[Have them say they are demolishing this neighborhood ->Remember][$suspicion += 1]]</span>
 
-<span class="bottom-right">[[Say they are filling in a pothole ->Remember]]</span>
+<span class="bottom-right">[[Say there is a gas leak ->Remember]]</span>
 
 
 :: Newspaper stand {"position":"500,1025","size":"100,100"}
@@ -503,7 +556,25 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
 <span class="bottom-right">[[Recommend the advertiser's magazine: Daily Life ->Work][$suspicion += 1, $funding += 1]]</span>
 
 
-:: Nostalgia & Beer {"position":"1225,850","size":"100,100"}
+:: Night {"position":"675,1525","size":"100,100"}
+<<set $scene = "house">>
+<div class="ratingsBar">
+  <div class="meter-container">
+    <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
+  </div>
+</div>
+<div class="fundingBar">
+  <div class="meter-container" style="margin-left: auto;">
+    <<print '<div class="meter-fill funding-color" style="height:' + ($funding * 10) + '%;"></div>'>>
+  </div>
+</div>
+
+<span class="textbox">Truman goes to bed.</span>
+
+<span class="bottom-left">[[Continue ->Commute]]</span>
+
+
+:: Nostalgia & Beer {"position":"1325,850","size":"100,100"}
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -524,7 +595,8 @@ High Ratings, High Sponsors, Truman Doesn't Finds Out
 High Ratings, High Sponsors, Truman Finds Out
 
 
-:: Old Friend {"position":"1300,600","size":"100,100"}
+:: Old Friend {"position":"1400,600","size":"100,100"}
+<<set $scene = "beach">>
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -542,7 +614,7 @@ High Ratings, High Sponsors, Truman Finds Out
 <span class="bottom-left">[[Continue ->Truman Gets Deep]]</span>
 
 
-:: Placeholder {"position":"2200,975","size":"100,100"}
+:: Placeholder {"position":"2600,975","size":"100,100"}
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -557,7 +629,7 @@ High Ratings, High Sponsors, Truman Finds Out
 <span class="textbox">Truman doesn't find out. He goes on to live the rest of his life in this fake world.</span>
 
 
-:: Plug Sponsor {"position":"1525,1100","size":"100,100"}
+:: Plug Sponsor {"position":"1725,1100","size":"100,100"}
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -572,10 +644,11 @@ High Ratings, High Sponsors, Truman Finds Out
 
 <span class="textbox">Truman says, "It felt so real." Meryl responds by saying, "The only real thing is that bump on your head. Here. The doctor said you should take two 'Nurophen-Plus'. Fast-acting relief for when life hits you a little too hard." Truman takes the painkillers and falls back asleep.</span>
 
-<span class="bottom-left">[[Continue|Product Placement][$suspicion += 2, $funding += 2]]</span
+<span class="bottom-left">[[Continue|Product Placement][$suspicion += 2, $funding += 2]]</span>
 
 
-:: Product Placement {"position":"1900,600","size":"100,100"}
+:: Product Placement {"position":"2200,600","size":"100,100"}
+<<set $scene = "house">>
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -618,6 +691,41 @@ High Ratings, High Sponsors, Truman Finds Out
 <span class="bottom-right">[[*No Comment* ->Interuption]]</span>
 
 
+:: Radio {"position":"750,1275","size":"100,100"}
+<<set $scene = "car">>
+<div class="ratingsBar">
+  <div class="meter-container">
+    <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
+  </div>
+</div>
+<div class="fundingBar">
+  <div class="meter-container" style="margin-left: auto;">
+    <<print '<div class="meter-fill funding-color" style="height:' + ($funding * 10) + '%;"></div>'>>
+  </div>
+</div>
+
+<span class="textbox">Truman starts listening to the song, before turning it off and saying, "They don't make music like they used to".</span>
+
+<span class="bottom-left">[[Continue ->Father]]</span>
+
+
+:: RatingEnding {"position":"1500,1300","size":"100,100"}
+<div class="ratingsBar">
+  <div class="meter-container">
+    <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
+  </div>
+</div>
+<div class="fundingBar">
+  <div class="meter-container" style="margin-left: auto;">
+    <<print '<div class="meter-fill funding-color" style="height:' + ($funding * 10) + '%;"></div>'>>
+  </div>
+</div>
+
+<span class="textbox">The show is getting low ratings and no one is watching anymore. The show is forced to be canceled by the networks.</span>
+
+<span class="bottom-left">[[Start Over ->TV Intro]]</span>
+
+
 :: Remember {"position":"500,1400","size":"100,100"}
 <<set $scene = "house">>
 <div class="ratingsBar">
@@ -652,7 +760,7 @@ High Ratings, High Sponsors, Truman Finds Out
 </div>
 
 
-<span class="textbox">An extra in the grocery store is trying to get Truman to sign his t-shirt.</span>
+<span class="textbox">An extra in the town square after work is trying to get Truman to sign his t-shirt.</span>
 
 <span class="bottom-left">[[Distract with a product placement ->Detergent Product Placement]]</span>
 
@@ -671,9 +779,25 @@ Low Ratings, High Sponsors, Truman Finds Out
 Low Ratings, Low Sponsors, Truman Finds Out
 
 
+:: Song {"position":"900,1275","size":"100,100"}
+<<set $scene = "car">>
+<div class="ratingsBar">
+  <div class="meter-container">
+    <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
+  </div>
+</div>
+<div class="fundingBar">
+  <div class="meter-container" style="margin-left: auto;">
+    <<print '<div class="meter-fill funding-color" style="height:' + ($funding * 10) + '%;"></div>'>>
+  </div>
+</div>
+
+<span class="textbox">Truman dances and sings along in the car. It is extremely funny to watch.</span>
+
+<span class="bottom-left">[[Continue ->Father]]</span>
+
+
 :: Start Suspicion {"position":"650,400","size":"100,100"}
-
-
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -738,7 +862,8 @@ Low Ratings, Low Sponsors, Truman Finds Out
 <span class="bottom-left">[[Continue ->Old Friend]]</span>
 
 
-:: Truman Finishes Walk {"position":"2200,850","size":"100,100"}
+:: Truman Finishes Walk {"position":"2600,850","size":"100,100"}
+<<set $scene = "house">>
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -756,7 +881,7 @@ Low Ratings, Low Sponsors, Truman Finds Out
 <span class="bottom-left">[[Continue|Placeholder]]</span>
 
 
-:: Truman Gets Deep {"position":"1300,725","size":"100,100"}
+:: Truman Gets Deep {"position":"1400,725","size":"100,100"}
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -775,7 +900,8 @@ Low Ratings, Low Sponsors, Truman Finds Out
 <span class="bottom-right">[[Have Marlon tell Truman he's crazy ->You're Acting Crazy]]</span>
 
 
-:: Truman Goes Back Home {"position":"1675,1100","size":"100,100"}
+:: Truman Goes Back Home {"position":"1875,1100","size":"100,100"}
+<<set $scene = "house">>
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -798,6 +924,7 @@ Low Ratings, High Sponsors, Truman Doesn't Finds Out
 
 
 :: Truman Goes Home {"position":"1000,850","size":"100,100"}
+<<set $scene = "house">>
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -814,7 +941,8 @@ Low Ratings, High Sponsors, Truman Doesn't Finds Out
 <span class="bottom-left">[[Continue|Truman Calls Marlon]]</span>
 
 
-:: Truman Goes to Bed {"position":"1300,1100","size":"100,100"}
+:: Truman Goes to Bed {"position":"1400,1100","size":"100,100"}
+<<set $scene = "house">>
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -831,7 +959,8 @@ Low Ratings, High Sponsors, Truman Doesn't Finds Out
 <span class="bottom-left">[[Continue|Lauren Appears]]</span>
 
 
-:: Truman Leaves the House {"position":"1825,1100","size":"100,100"}
+:: Truman Leaves the House {"position":"2200,975","size":"100,100"}
+<<set $scene = "house">>
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -843,12 +972,13 @@ Low Ratings, High Sponsors, Truman Doesn't Finds Out
   </div>
 </div>
 
-<span class="textbox">Truman decides to leave the house and go on a walk around the neighborhood.</span>
+<span class="textbox">Truman starts getting ready to go on a walk.</span>
 
-<span class="bottom-left">[[Continue|Neighbor Wants More Screentime]]</span>
+<span class="bottom-left">[[Continue ->Neighbor Wants More Screentime]]</span>
 
 
-:: Truman Wakes Up {"position":"1525,975","size":"100,100"}
+:: Truman Wakes Up {"position":"1725,975","size":"100,100"}
+<<set $scene = "house">>
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -861,9 +991,9 @@ Low Ratings, High Sponsors, Truman Doesn't Finds Out
 </div>
 
 
-<span class="textbox">Truman wakes up, holding his head. He mumbles, "Lauren. . . Where's Lauren? Where am I?" Meryl rubs his back and says, "Oh Truman, you need to be more careful. Don't you remember? You tripped over a loose stone in the town square and hit your head. You've been in and out of nightmares all day."</span>
+<span class="textbox">Truman wakes up at home, holding his head. He mumbles, "Lauren. . . Where's Lauren? Where am I?" Meryl rubs his back and says, "Oh Truman, you need to be more careful. Don't you remember? You tripped over a loose stone in the town square and hit your head. You've been in and out of nightmares all day."</span>
 
-<span class="bottom-left">[[Continue|Plug Sponsor]]</span
+<span class="bottom-left">[[Continue|Plug Sponsor][$ratings -= 2]]</span>
 
 
 :: Work {"position":"500,1150","size":"100,100"}
@@ -881,12 +1011,13 @@ Low Ratings, High Sponsors, Truman Doesn't Finds Out
 
 <span class="textbox">Truman enters into work. He goes to his desk. Instead of starting to do work, he takes out a magazine. He takes a look at some island locations.</span>
 
-<span class="bottom-left">[[Have a manager come over and to do a project ->End of Day][$ratings -= 1]]</span>
+<span class="bottom-left">[[Have a manager come over and give him a project ->End of Day][$ratings -= 1]]</span>
 
 <span class="bottom-right">[[Don't interupt and let it play out ->End of Day][$ratings += 1]]</span>
 
 
-:: You're Acting Crazy {"position":"1375,850","size":"100,100"}
+:: Work Again {"position":"825,950","size":"100,100"}
+<<set $scene = "work">>
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -898,9 +1029,28 @@ Low Ratings, High Sponsors, Truman Doesn't Finds Out
   </div>
 </div>
 
-<span class="textbox">Marlon looks at Truman with a concerned expression and says, "Hey, you're starting so scare me, man. Are you okay? This isn't normal behavior. I think you should go talk to someone because you sound crazy right now. I don't even know what to say to you."</span>
+<span class="textbox"> Truman sits at his work desk. Instead of doing anything, he stares out the window into the distance.</span>
 
-<span class="bottom-left">[[Continue ->Truman Goes to Bed][$suspicion += 2]]</span>
+<span class="bottom-left">[[Have a parade start outside->Rogue Extra][$suspicion += 1, $ratings += 1]]</span>
+
+<span class="bottom-right">[[Call Truman into a meeting ->Rogue Extra][$ratings -= 1]]</span>
+
+
+:: You're Acting Crazy {"position":"1475,850","size":"100,100"}
+<div class="ratingsBar">
+  <div class="meter-container">
+    <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
+  </div>
+</div>
+<div class="fundingBar">
+  <div class="meter-container" style="margin-left: auto;">
+    <<print '<div class="meter-fill funding-color" style="height:' + ($funding * 10) + '%;"></div>'>>
+  </div>
+</div>
+
+<span class="textbox">Marlon looks at Truman with a concerned expression and says, "Hey, you're starting so scare me, man. Are you okay? This isn't normal behavior. I think you should go talk to someone because you sound crazy right now. Let's put the beer away because I don't think it's helping you right now."</span>
+
+<span class="bottom-left">[[Continue ->Truman Goes to Bed][$ratings -= 1, $suspicion += 2, $funding -= 2]]</span>
 
 
 :: StoryScript [script]
@@ -931,6 +1081,7 @@ $(document).one(':storyready', function () {
     console.log("Indicator created");
 });
 
+//Defining light for scenes
 const sceneHeights = {
     hide: '-50%',
   	house: '22.35%',
@@ -943,6 +1094,7 @@ const sceneHeights = {
     boat: '49.3%'
 };
 
+//Displays specific scenes
 $(document).on(':passagedisplay', function () {
     const img = document.getElementById('indicator');
     if (!img) return;
@@ -951,6 +1103,17 @@ $(document).on(':passagedisplay', function () {
 
     img.style.top = sceneHeights[scene] || '25%';
     img.style.left = '18%';
+});
+
+$(document).on(':passagedisplay', function () {
+    if (State.passage === "RatingEnding" || State.passage === "FundingEnding") return;
+
+    if (State.variables.ratings <= 0) {
+        Engine.play("RatingEnding");
+    }
+    else if (State.variables.funding <= 0) {
+        Engine.play("FundingEnding");
+    }
 });
 
 :: StoryStylesheet [stylesheet]
