@@ -34,6 +34,7 @@ Behind The Show
 
 
 :: Apologies For the Inconvenience {"position":"1875,975","size":"100,100"}
+<<set $characterView = "forward">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
 <div class="ratingsBar">
@@ -100,6 +101,7 @@ Behind The Show
 :: Breakfast {"position":"500,525","size":"100,100"}
 <<set $prevScene = $scene>>
 <<set $scene = "houseKitchen">>
+<<set $characterView = "forward">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
 <div class="ratingsBar">
@@ -207,7 +209,7 @@ Behind The Show
 <span class="bottom-left">[[Continue ->Truman Goes to Bed][$funding += 1]]</span>
 
 
-:: Commute {"position":"800,1400","size":"100,100"}
+:: Commute {"position":"825,1325","size":"100,100"}
 <<set $prevScene = $scene>>
 <<set $scene = "car">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
@@ -312,9 +314,10 @@ Behind The Show
 <span class="bottom-left">[[Continue ->Truman Goes Home][$funding += 1, $ratings -= 1]]</span>
 
 
-:: Dinner {"position":"500,1525","size":"100,100"}
+:: Dinner {"position":"725,1450","size":"100,100"}
 <<set $prevScene = $scene>>
 <<set $scene = "houseKitchen">>
+<<set $characterView = "forward">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
 <div class="ratingsBar">
@@ -405,6 +408,7 @@ Behind The Show
 :: Eliminate {"position":"2675,725","size":"100,100"}
 <<set $prevScene = $scene>>
 <<set $scene = "driveway">>
+<<set $characterView = "walking">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
 <div class="ratingsBar">
@@ -462,7 +466,7 @@ Behind The Show
 
 <span class="textbox">On the way back from work, Truman decides to take a new way home. However, there are no extras in that area, so it will look abandoned.</span>
 
-<span class="bottom-left">[[Have construction workers put constructions workers in the middle of the neighborhood.->New Path]]</span>
+<span class="bottom-left">[[Put constructions workers in the middle of the neighborhood.->New Path]]</span>
 
 <span class="bottom-right">[[Have cars come in and block his path ->Remember][$suspicion += 1]]</span>
 
@@ -481,7 +485,7 @@ Behind The Show
   </div>
 </div>
 
-<<if $scene == "house">>
+<<if $scene == "houseKitchen">>
 	<<set $prevScene = $scene>>
 	<<set $scene = "static">>
 	<span class="textbox">The crew comes in and takes Meryl out. Truman finds out and is able to leave to see the real world.</span>
@@ -562,9 +566,10 @@ Behind The Show
 <span class="bottom-right">[[Let Him Reach the End->Ending]]</span>
 
 
-:: Father {"position":"825,1125","size":"100,100"}
+:: Father {"position":"825,1075","size":"100,100"}
 <<set $prevScene = $scene>>
 <<set $scene = "townSquare">>
+<<set $characterView = "turned">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
 <div class="ratingsBar">
@@ -610,6 +615,7 @@ Behind The Show
 
 
 :: Force Placement {"position":"2050,850","size":"100,100"}
+<<set $characterView = "forward">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
 <div class="ratingsBar">
@@ -629,7 +635,7 @@ Behind The Show
 <span class="bottom-left">[[Continue ->Truman Leaves the House][$suspicion += 1, $funding += 1, $ratings -= 1]]</span>
 
 
-:: FundingEnding {"position":"1600,1300","size":"100,100"}
+:: FundingEnding {"position":"1300,350","size":"100,100"}
 <<set $prevScene = $scene>>
 <<set $scene = "static">>
 <div class="ratingsBar">
@@ -651,6 +657,7 @@ Behind The Show
 :: Get Dressed {"position":"500,650","size":"100,100"}
 <<set $prevScene = $scene>>
 <<set $scene = "houseBedroom">>
+<<set $characterView = "forward">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
 <div class="ratingsBar">
@@ -674,6 +681,7 @@ Behind The Show
 :: Go to Car {"position":"500,775","size":"100,100"}
 <<set $prevScene = $scene>>
 <<set $scene = "driveway">>
+<<set $characterView = "turned">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
 <div class="ratingsBar">
@@ -700,6 +708,7 @@ Behind The Show
 
 
 :: Grab {"position":"2000,200","size":"100,100"}
+<<set $characterView = "forward">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
 <div class="ratingsBar">
@@ -842,7 +851,7 @@ Behind The Show
 <span class="bottom-left">[[Start Over->TV Intro]]</span>
 
 
-:: Land {"position":"2325,400","size":"100,100"}
+:: Land {"position":"2325,450","size":"100,100"}
 <<set $prevScene = $scene>>
 <<set $scene = "townSquare">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
@@ -869,6 +878,7 @@ Behind The Show
 :: Lauren {"position":"1800,725","size":"100,100"}
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
+<<set $characterView = "turned">>
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -891,6 +901,7 @@ Behind The Show
 :: Lauren Appears {"position":"1800,600","size":"100,100"}
 <<set $prevScene = $scene>>
 <<set $scene = "townSquare">>
+<<set $characterView = "walking">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
 <div class="ratingsBar">
@@ -913,6 +924,7 @@ Behind The Show
 :: Looks at light {"position":"625,900","size":"100,100"}
 <<set $prevScene = $scene>>
 <<set $scene = "driveway">>
+<<set $characterView = "forward">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
 <div class="ratingsBar">
@@ -972,7 +984,7 @@ Behind The Show
 <span class="bottom-right">[[Eliminate the Character|Eliminate]]</span>
 
 
-:: New Path {"position":"625,1400","size":"100,100"}
+:: New Path {"position":"625,1325","size":"100,100"}
 <<set $prevScene = $scene>>
 <<set $scene = "car">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
@@ -998,6 +1010,7 @@ Behind The Show
 :: Newspaper stand {"position":"500,1025","size":"100,100"}
 <<set $prevScene = $scene>>
 <<set $scene = "townSquare">>
+<<set $characterView = "walking">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
 <div class="ratingsBar">
@@ -1018,9 +1031,10 @@ Behind The Show
 <span class="bottom-right">[[Recommend the advertiser's magazine: Daily Life ->Work][$suspicion += 1, $funding += 1]]</span>
 
 
-:: Night {"position":"675,1525","size":"100,100"}
+:: Night {"position":"900,1450","size":"100,100"}
 <<set $prevScene = $scene>>
 <<set $scene = "houseBedroom">>
+<<set $characterView = "walking">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
 <div class="ratingsBar">
@@ -1042,6 +1056,7 @@ Behind The Show
 :: Nostalgia & Beer {"position":"1325,850","size":"100,100"}
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
+<<set $characterView = "turned">>
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -1061,6 +1076,7 @@ Behind The Show
 :: Old Friend {"position":"1400,600","size":"100,100"}
 <<set $prevScene = $scene>>
 <<set $scene = "beach">>
+<<set $characterView = "turned">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
 <div class="ratingsBar">
@@ -1135,6 +1151,7 @@ Behind The Show
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
 <<set $prevScene = $scene>>
 <<set $scene = "houseKitchen">>
+<<set $characterView = "turned">>
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -1177,7 +1194,7 @@ Behind The Show
 <span class="bottom-right">[[*No Comment* ->Interuption]]</span>
 
 
-:: Radio {"position":"750,1275","size":"100,100"}
+:: Radio {"position":"750,1200","size":"100,100"}
 <<set $prevScene = $scene>>
 <<set $scene = "car">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
@@ -1198,7 +1215,7 @@ Behind The Show
 <span class="bottom-left">[[Continue ->Father]]</span>
 
 
-:: RatingEnding {"position":"1500,1300","size":"100,100"}
+:: RatingEnding {"position":"1300,250","size":"100,100"}
 <<set $prevScene = $scene>>
 <<set $scene = "static">>
 <div class="ratingsBar">
@@ -1219,7 +1236,8 @@ Behind The Show
 
 :: Remember {"position":"500,1400","size":"100,100"}
 <<set $prevScene = $scene>>
-<<set $scene = "houseKitchen">>
+<<set $scene = "houseBedroom">>
+<<set $characterView = "forward">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
 <div class="ratingsBar">
@@ -1261,6 +1279,7 @@ Behind The Show
 :: Rogue Extra {"position":"1000,600","size":"100,100"}
 <<set $prevScene = $scene>>
 <<set $scene = "townSquare">>
+<<set $characterView = "turned">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
 <div class="ratingsBar">
@@ -1282,7 +1301,7 @@ Behind The Show
 <span class="bottom-right">[[Fire the extra ->Extra Fired]]</span>
 
 
-:: Song {"position":"900,1275","size":"100,100"}
+:: Song {"position":"900,1200","size":"100,100"}
 <<set $prevScene = $scene>>
 <<set $scene = "car">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
@@ -1384,6 +1403,7 @@ Behind The Show
 <<set $restart = false>>
 
 <<set $scene = "houseBedroom">>
+<<set $characterView = "turned">>
 
 <div class="ratingsBar">
   <div class="meter-container">
@@ -1407,6 +1427,7 @@ Behind The Show
 :: Truman Calls Marlon {"position":"1000,975","size":"100,100"}
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
+<<set $characterView = "walking">>
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -1427,6 +1448,7 @@ Behind The Show
 :: Truman Finishes Walk {"position":"2600,850","size":"100,100"}
 <<set $prevScene = $scene>>
 <<set $scene = "houseKitchen">>
+<<set $characterView = "forward">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
 <div class="ratingsBar">
@@ -1447,9 +1469,10 @@ Behind The Show
 
 
 :: Truman Gets Deep {"position":"1400,725","size":"100,100"}
-<div class="ratingsBar">
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
+<<set $characterView = "forward">>
+<div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
   </div>
@@ -1470,6 +1493,7 @@ Behind The Show
 :: Truman Goes Back Home {"position":"1875,1100","size":"100,100"}
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
+<<set $characterView = "forward">>
 <<set $prevScene = $scene>>
 <<set $scene = "houseBedroom">>
 <div class="ratingsBar">
@@ -1492,6 +1516,7 @@ Behind The Show
 :: Truman Goes Home {"position":"1000,850","size":"100,100"}
 <<set $prevScene = $scene>>
 <<set $scene = "houseKitchen">>
+<<set $characterView = "forward">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
 <div class="ratingsBar">
@@ -1513,6 +1538,7 @@ Behind The Show
 :: Truman Goes to Bed {"position":"1400,1100","size":"100,100"}
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
+<<set $characterView = "forward">>
 <<set $prevScene = $scene>>
 <<set $scene = "houseBedroom">>
 <div class="ratingsBar">
@@ -1534,6 +1560,7 @@ Behind The Show
 :: Truman Leaves the House {"position":"2200,975","size":"100,100"}
 <<set $prevScene = $scene>>
 <<set $scene = "houseKitchen">>
+<<set $characterView = "walking">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
 <div class="ratingsBar">
@@ -1557,6 +1584,7 @@ Behind The Show
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
 <<set $prevScene = $scene>>
 <<set $scene = "houseBedroom">>
+<<set $characterView = "forward">>
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -1618,16 +1646,19 @@ Behind The Show
 <<if $scene == "houseKitchen" || $scene == "houseBedroom">>
 	<<set $prevScene = $scene>>
     <<set $scene = "houseKitchen">>
+    <<set $characterView = "turned">>
 	<span class="textbox">Truman calls out to Meryl. He then approaches her in the kitchen.</span>
 <<else>>
 	<<set $prevScene = $scene>>
 	<<set $scene = "houseKitchen">>
+    <<set $characterView = "turned">>
 	<span class="textbox">Truman decides to go straight home. When he gets home, he approaches Meryl in the kitchen.</span>
 <</if>>
 <span class="bottom-left">[[Continue ->Confrontation]]</span>
 
 
 :: WifeReturn {"position":"2450,125","size":"100,100"}
+<<set $characterView = "turned">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
 <div class="ratingsBar">
@@ -1671,7 +1702,7 @@ Behind The Show
 <span class="bottom-right">[[Don't interupt and let it play out ->End of Day][$ratings += 1]]</span>
 
 
-:: Work Again {"position":"825,950","size":"100,100"}
+:: Work Again {"position":"825,925","size":"100,100"}
 <<set $prevScene = $scene>>
 <<set $scene = "work">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
@@ -1697,6 +1728,7 @@ Behind The Show
 :: You're Acting Crazy {"position":"1475,850","size":"100,100"}
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
+<<set $characterView = "turned">>
 <div class="ratingsBar">
   <div class="meter-container">
     <<print '<div class="meter-fill" style="height:' + ($ratings * 10) + '%;"></div>'>>
@@ -1717,7 +1749,7 @@ Behind The Show
 //Background list
 const backgrounds = {
     interview: "https://jmdietz12.github.io/behind-the-show/images/interview_pov.png",
-  	videoPanel: "https://jmdietz12.github.io/behind-the-show/images/video_panel_blank.png",
+    videoPanel: "https://jmdietz12.github.io/behind-the-show/images/video_panel_blank.png",
 };
 
 //Switching bacgrounds
@@ -1729,64 +1761,26 @@ $(document).on(':passagerender', function () {
     }
 });
 
-$(document).one(':storyready', function () {
-
-    const img = document.createElement('img');
-
-    img.id = 'indicator';
-    img.src = 'https://jmdietz12.github.io/behind-the-show/images/location_selector.png';
-
-    document.body.appendChild(img);
-
-    console.log("Indicator created");
-});
-
-//Defining light for scenes
-const sceneHeights = {
-    hide: '-50%',
-  	static: '-50%',
-  	houseBedroom: '22.35%',
-  	houseKitchen: '22.35%',
-    driveway: '26%',
-    work: '29.8%',
-    car: '33.6%',
-  	carWoods: '33.6%',
-    townSquare: '37.45%',
-    beach: '41.5%',
-    dock: '45.4%',
-    boat: '49.3%'
-};
-
-//Displays specific indicators
-$(document).on(':passagedisplay', function () {
-    const img = document.getElementById('indicator');
-    if (!img) return;
-
-    const scene = State.variables.scene;
-
-    img.style.top = sceneHeights[scene] || '25%';
-    img.style.left = '18%';
-});
-
 //Sets Scene Images
 $(document).one(':storyready', function () {
 
     const img = document.createElement('img');
-
     img.id = 'scene-image';
 
     document.body.appendChild(img);
+
+    console.log("Scene image element created");
 });
 
 //Scene Images
 const sceneImages = {
-  	static: "https://jmdietz12.github.io/behind-the-show/images/static.png",
+    static: "https://jmdietz12.github.io/behind-the-show/images/static.png",
     houseKitchen: "https://jmdietz12.github.io/behind-the-show/images/house_kitchen.png",
-  	houseBedroom: "https://jmdietz12.github.io/behind-the-show/images/house_bedroom.png",
+    houseBedroom: "https://jmdietz12.github.io/behind-the-show/images/house_bedroom.png",
     driveway: "https://jmdietz12.github.io/behind-the-show/images/house.png",
     work: "https://jmdietz12.github.io/behind-the-show/images/work.png",
     car: "https://jmdietz12.github.io/behind-the-show/images/car_road.png",
-  	carWoods: "https://jmdietz12.github.io/behind-the-show/images/car_woods.png",
+    carWoods: "https://jmdietz12.github.io/behind-the-show/images/car_woods.png",
     townSquare: "https://jmdietz12.github.io/behind-the-show/images/town_square.png",
     beach: "https://jmdietz12.github.io/behind-the-show/images/beach.png",
     dock: "https://jmdietz12.github.io/behind-the-show/images/dock.png",
@@ -1804,6 +1798,33 @@ $(document).on(':passagedisplay', function () {
     if (sceneImages[scene]) {
         img.src = sceneImages[scene];
     }
+});
+
+//Defining light for scenes
+const sceneHeights = {
+    hide: '-50%',
+    static: '-50%',
+    houseBedroom: '22.35%',
+    houseKitchen: '22.35%',
+    driveway: '26%',
+    work: '29.8%',
+    car: '33.6%',
+    carWoods: '33.6%',
+    townSquare: '37.45%',
+    beach: '41.5%',
+    dock: '45.4%',
+    boat: '49.3%'
+};
+
+//Displays specific indicators
+$(document).on(':passagedisplay', function () {
+    const img = document.getElementById('indicator');
+    if (!img) return;
+
+    const scene = State.variables.scene;
+
+    img.style.top = sceneHeights[scene] || '25%';
+    img.style.left = '18%';
 });
 
 //Displays with 0
@@ -1824,7 +1845,8 @@ $(document).on(':passagedisplay', function () {
     const v = State.variables;
     const suspicion = v.suspicion;
     const current = State.passage;
-  	v.returnScene = v.scene;
+
+    v.returnScene = v.scene;
 
     // Do NOT trigger anything while inside an ending sequence
     if (v.inEnding) return;
@@ -1852,6 +1874,75 @@ $(document).on(':passagedisplay', function () {
         Engine.play("BoatEnding");
         return;
     }
+});
+
+//Indicator creation
+$(document).one(':storyready', function () {
+
+    const img = document.createElement('img');
+
+    img.id = 'indicator';
+    img.src = 'https://jmdietz12.github.io/behind-the-show/images/location_selector.png';
+
+    document.body.appendChild(img);
+
+    console.log("Indicator created");
+});
+
+//Truman Sprites
+const characterSprites = {
+    forward: "https://jmdietz12.github.io/behind-the-show/images/truman_forward.png",
+    turned: "https://jmdietz12.github.io/behind-the-show/images/truman_turned.png",
+    walking: "https://jmdietz12.github.io/behind-the-show/images/truman_walking.png"
+};
+
+//Sets position based off of screen
+const characterPositions = {
+    houseBedroom: { bottom: "20%", right: "35%", scale: 0.35 },
+    houseKitchen: { bottom: "26%", right: "53%", scale: 0.35 },
+    driveway: { bottom: "0%", right: "35.5%", scale: 0.15 },
+    townSquare: { bottom: "0%", right: "40%", scale: 0.2 },
+    beach: { bottom: "0%", right: "40%", scale: 0.4 }
+};
+
+//Ensure sprite container exists
+$(function () {
+    if (!document.getElementById("character-sprite")) {
+        document.body.insertAdjacentHTML(
+            "beforeend",
+            '<div id="character-sprite"></div>'
+        );
+    }
+});
+
+//Changes sprites
+$(document).on(':passagedisplay', function () {
+
+    const scene = State.variables.scene;
+    const view = State.variables.characterView;
+
+    const img = characterSprites[view] || characterSprites.forward;
+    const pos = characterPositions[scene];
+
+    const el = document.getElementById("character-sprite");
+    if (!el) return;
+
+    //If scene has no character placement → hide sprite
+    if (!pos) {
+        el.style.display = "none";
+        return;
+    }
+
+    //Otherwise show it
+    el.style.display = "block";
+
+    el.innerHTML = `<img src="${img}">`;
+
+    el.style.position = "absolute";
+    el.style.zIndex = 2;
+    el.style.bottom = pos.bottom ?? "0%";
+    el.style.right = pos.right ?? "10%";
+    el.style.transform = `scale(${pos.scale ?? 1})`;
 });
 
 :: StoryStylesheet [stylesheet]
@@ -1884,7 +1975,7 @@ body {
   font-family: "Silkscreen";
 
   font-size: 18px;
-  z-index: 2;
+  z-index: 3;
 }
 
 .bottom-right {
@@ -1904,13 +1995,13 @@ body {
   font-family: "Silkscreen";
 
   font-size: 18px;
-  z-index: 2;
+  z-index: 3;
 }
 
 .ratingsBar {
   position: absolute;
   top: 18.4%;
-  right: 17.9%;
+  right: 17.85%;
   text-align: left;
   color: white;
   text-shadow: 2px 2px 4px white;
@@ -1919,12 +2010,35 @@ body {
 .fundingBar {
   position: absolute;
   top: 54.4%;
-  right: 17.9%;
+  right: 17.85%;
   text-align: right;
   color: white;
   text-shadow: 2px 2px 4px white;
 }
 
+.meter-fill.funding-color {
+  background-color: #FFEE00
+}
+
+.meter-container {
+  position: relative;
+  width: 60px;
+  height: 200px;
+  background-color: #525273;
+  overflow: hidden;
+  z-index: 1;
+
+  clip-path: polygon(
+    10px 0%,                /* top-left cut */
+    calc(100% - 10px) 0%,   /* top-right cut */
+    100% 10px,              /* top-right vertical cut */
+    100% calc(100% - 10px), /* bottom-right cut */
+    calc(100% - 10px) 100%, /* bottom-right horizontal cut */
+    10px 100%,              /* bottom-left cut */
+    0% calc(100% - 10px),   /* bottom-left vertical cut */
+    0% 10px                 /* back to top-left */
+  );
+}
 .textbox {
   position: absolute;
 
@@ -1948,19 +2062,7 @@ body {
   font-family: "Silkscreen";
 
   font-size: 24px;
-  z-index: 2;
-}
-
-.meter-fill.funding-color {
-  background-color: #FFEE00
-}
-
-.meter-container {
-  position: relative;
-  width: 60px;
-  height: 200px;
-  background-color: #525273;
-  overflow: hidden;
+  z-index: 3;
 }
 
 .meter-fill {
@@ -1982,7 +2084,7 @@ body {
   max-width: none;
   max-height: none;
 
-  z-index: 999;
+  z-index: 1;
   pointer-events: none;
 }
 
@@ -2025,4 +2127,14 @@ body {
   font-family: monospace;
 
   z-index: 9999;
+}
+
+#character-sprite {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+}
+
+#character-sprite img {
+  width: 250px;
 }
