@@ -339,6 +339,7 @@ Behind The Show
 
 
 :: Dock {"position":"2200,300","size":"100,100"}
+<<set $bg = "videoPanel">>
 <<set $prevScene = $scene>>
 <<set $scene = "dock">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
@@ -1391,6 +1392,12 @@ Behind The Show
 
 
 
+:: StoryInterface {"position":"400,200","size":"100,100"}
+<div id="game-container">
+  <div id="passages"></div>
+</div>
+
+
 :: TV Intro {"position":"500,400","size":"100,100"}
 <<set $bg = "videoPanel">>
 
@@ -1746,33 +1753,52 @@ Behind The Show
 
 
 :: StoryScript [script]
-//Background list
+// ===== SCALE SYSTEM =====
+function scaleGame() {
+    const baseWidth = 1536;
+    const baseHeight = 700;
+
+    const scale = Math.min(
+        window.innerWidth / baseWidth,
+        window.innerHeight / baseHeight
+    );
+
+    const game = document.getElementById("game-container");
+    if (!game) return;
+
+    game.style.transform = `scale(${scale})`;
+    game.style.left = `${(window.innerWidth - baseWidth * scale) / 2}px`;
+    game.style.top = `${(window.innerHeight - baseHeight * scale) / 2}px`;
+}
+
+window.addEventListener("resize", scaleGame);
+window.addEventListener("load", scaleGame);
+
+
+// ===== BACKGROUND =====
 const backgrounds = {
     interview: "https://jmdietz12.github.io/behind-the-show/images/interview_pov.png",
     videoPanel: "https://jmdietz12.github.io/behind-the-show/images/video_panel_blank.png",
 };
 
-//Switching bacgrounds
 $(document).on(':passagerender', function () {
     const bg = State.variables.bg;
-
-    if (backgrounds[bg]) {
-        document.body.style.backgroundImage = `url('${backgrounds[bg]}')`;
-    }
+   	const game = document.getElementById("game-container");
+	if (game && backgrounds[bg]) {
+    	game.style.backgroundImage = `url('${backgrounds[bg]}')`;
+	}
 });
 
-//Sets Scene Images
+
+// ===== SCENE IMAGE =====
 $(document).one(':storyready', function () {
 
     const img = document.createElement('img');
     img.id = 'scene-image';
 
-    document.body.appendChild(img);
-
-    console.log("Scene image element created");
+    document.getElementById("game-container").appendChild(img);
 });
 
-//Scene Images
 const sceneImages = {
     static: "https://jmdietz12.github.io/behind-the-show/images/static.png",
     houseKitchen: "https://jmdietz12.github.io/behind-the-show/images/house_kitchen.png",
@@ -1787,7 +1813,6 @@ const sceneImages = {
     boat: "https://jmdietz12.github.io/behind-the-show/images/boat_ocean.png"
 };
 
-//Updates Scene
 $(document).on(':passagedisplay', function () {
 
     const img = document.getElementById('scene-image');
@@ -1800,7 +1825,8 @@ $(document).on(':passagedisplay', function () {
     }
 });
 
-//Defining light for scenes
+
+// Indicator
 const sceneHeights = {
     hide: '-50%',
     static: '-50%',
@@ -1811,13 +1837,22 @@ const sceneHeights = {
     car: '33.6%',
     carWoods: '33.6%',
     townSquare: '37.45%',
-    beach: '41.5%',
-    dock: '45.4%',
-    boat: '49.3%'
+    beach: '43.5%',
+    dock: '47.4%',
+    boat: '51.1%'
 };
 
-//Displays specific indicators
+$(document).one(':storyready', function () {
+
+    const img = document.createElement('img');
+    img.id = 'indicator';
+    img.src = 'https://jmdietz12.github.io/behind-the-show/images/location_selector.png';
+
+    document.getElementById("game-container").appendChild(img);
+});
+
 $(document).on(':passagedisplay', function () {
+
     const img = document.getElementById('indicator');
     if (!img) return;
 
@@ -1827,7 +1862,8 @@ $(document).on(':passagedisplay', function () {
     img.style.left = '18%';
 });
 
-//Displays with 0
+
+// Endings
 $(document).on(':passagedisplay', function () {
     if (State.passage === "RatingEnding" || State.passage === "FundingEnding") return;
 
@@ -1839,7 +1875,6 @@ $(document).on(':passagedisplay', function () {
     }
 });
 
-//Suspicion Endings
 $(document).on(':passagedisplay', function () {
 
     const v = State.variables;
@@ -1848,10 +1883,8 @@ $(document).on(':passagedisplay', function () {
 
     v.returnScene = v.scene;
 
-    // Do NOT trigger anything while inside an ending sequence
     if (v.inEnding) return;
 
-    // Car Ending
     if (suspicion >= 3 && !v.carEndingDone) {
         v.returnPassage = current;
         v.inEnding = true;
@@ -1859,7 +1892,6 @@ $(document).on(':passagedisplay', function () {
         return;
     }
 
-    // Wife Ending
     if (suspicion >= 6 && !v.wifeEndingDone) {
         v.returnPassage = current;
         v.inEnding = true;
@@ -1867,7 +1899,6 @@ $(document).on(':passagedisplay', function () {
         return;
     }
 
-    // Boat Ending
     if (suspicion >= 9 && !v.boatEndingDone) {
         v.returnPassage = current;
         v.inEnding = true;
@@ -1876,27 +1907,14 @@ $(document).on(':passagedisplay', function () {
     }
 });
 
-//Indicator creation
-$(document).one(':storyready', function () {
 
-    const img = document.createElement('img');
-
-    img.id = 'indicator';
-    img.src = 'https://jmdietz12.github.io/behind-the-show/images/location_selector.png';
-
-    document.body.appendChild(img);
-
-    console.log("Indicator created");
-});
-
-//Truman Sprites
+// Truman Sprite
 const characterSprites = {
     forward: "https://jmdietz12.github.io/behind-the-show/images/truman_forward.png",
     turned: "https://jmdietz12.github.io/behind-the-show/images/truman_turned.png",
     walking: "https://jmdietz12.github.io/behind-the-show/images/truman_walking.png"
 };
 
-//Sets position based off of screen
 const characterPositions = {
     houseBedroom: { bottom: "20%", right: "35%", scale: 0.35 },
     houseKitchen: { bottom: "26%", right: "53%", scale: 0.35 },
@@ -1905,17 +1923,15 @@ const characterPositions = {
     beach: { bottom: "0%", right: "40%", scale: 0.4 }
 };
 
-//Ensure sprite container exists
 $(function () {
     if (!document.getElementById("character-sprite")) {
-        document.body.insertAdjacentHTML(
+        document.getElementById("game-container").insertAdjacentHTML(
             "beforeend",
             '<div id="character-sprite"></div>'
         );
     }
 });
 
-//Changes sprites
 $(document).on(':passagedisplay', function () {
 
     const scene = State.variables.scene;
@@ -1927,42 +1943,51 @@ $(document).on(':passagedisplay', function () {
     const el = document.getElementById("character-sprite");
     if (!el) return;
 
-    //If scene has no character placement → hide sprite
     if (!pos) {
         el.style.display = "none";
         return;
     }
 
-    //Otherwise show it
     el.style.display = "block";
-
     el.innerHTML = `<img src="${img}">`;
 
-    el.style.position = "absolute";
-    el.style.zIndex = 2;
     el.style.bottom = pos.bottom ?? "0%";
     el.style.right = pos.right ?? "10%";
     el.style.transform = `scale(${pos.scale ?? 1})`;
 });
 
 :: StoryStylesheet [stylesheet]
-body {
-  background-attachment: fixed;
-  background-size: contain; 
-  min-height: 100vh;
+html, body {
   margin: 0;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-color: black;
-  transition: background-image 0.5s ease-in-out;
+  padding: 0;
+  overflow: hidden;
+  background: black;
 }
+
+/* Game container (NEW) */
+#game-container {
+  position: absolute;
+  width: 1536px;
+  height: 700px;
+  transform-origin: top left;
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* REMOVE background behavior from body */
+body {
+  background: black;
+}
+
+/* UI elements (unchanged mostly) */
 
 .bottom-left {
   position: absolute;
   bottom: 10%;
   left: 17%;
-  width: 25%;
-  text-align: left;
+  width: 320px;
 
   background: rgba(0, 0, 0, 0.7);
   color: white;
@@ -1970,10 +1995,8 @@ body {
   padding: 10px;
   border: 2px solid white;
 
-  display: inline-block;
   text-align: center;
   font-family: "Silkscreen";
-
   font-size: 18px;
   z-index: 3;
 }
@@ -1982,7 +2005,7 @@ body {
   position: absolute;
   bottom: 10%;
   right: 17%;
-  width: 25%;
+  width: 320px;
 
   background: rgba(0, 0, 0, 0.7);
   color: white;
@@ -1990,10 +2013,8 @@ body {
   padding: 10px;
   border: 2px solid white;
 
-  display: inline-block;
   text-align: center;
   font-family: "Silkscreen";
-
   font-size: 18px;
   z-index: 3;
 }
@@ -2002,7 +2023,6 @@ body {
   position: absolute;
   top: 18.4%;
   right: 17.85%;
-  text-align: left;
   color: white;
   text-shadow: 2px 2px 4px white;
 }
@@ -2011,13 +2031,8 @@ body {
   position: absolute;
   top: 54.4%;
   right: 17.85%;
-  text-align: right;
   color: white;
   text-shadow: 2px 2px 4px white;
-}
-
-.meter-fill.funding-color {
-  background-color: #FFEE00
 }
 
 .meter-container {
@@ -2029,26 +2044,26 @@ body {
   z-index: 1;
 
   clip-path: polygon(
-    10px 0%,                /* top-left cut */
-    calc(100% - 10px) 0%,   /* top-right cut */
-    100% 10px,              /* top-right vertical cut */
-    100% calc(100% - 10px), /* bottom-right cut */
-    calc(100% - 10px) 100%, /* bottom-right horizontal cut */
-    10px 100%,              /* bottom-left cut */
-    0% calc(100% - 10px),   /* bottom-left vertical cut */
-    0% 10px                 /* back to top-left */
+    10px 0%,
+    calc(100% - 10px) 0%,
+    100% 10px,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    10px 100%,
+    0% calc(100% - 10px),
+    0% 10px
   );
 }
+
 .textbox {
   position: absolute;
-
   top: 0%;
   left: 50%;
   transform: translateX(-50%);
 
-  width: 67vw;
+  width: 1029px;
 
-  max-height: 80vh;
+  max-height: 600px;
   overflow-y: auto;
 
   background: rgba(0, 0, 0, 0.7);
@@ -2057,10 +2072,8 @@ body {
   padding: 10px;
   border: 2px solid white;
 
-  display: block;
   text-align: center;
   font-family: "Silkscreen";
-
   font-size: 24px;
   z-index: 3;
 }
@@ -2068,7 +2081,6 @@ body {
 .meter-fill {
   position: absolute;
   bottom: 0;
-  left: 0;
   width: 100%;
   height: 0%;
   background-color: #FFEE00;
@@ -2077,56 +2089,22 @@ body {
 
 #indicator {
   position: absolute;
-
-  width: auto;
-  height: auto;
-
-  max-width: none;
-  max-height: none;
-
   z-index: 1;
   pointer-events: none;
 }
 
 #scene-image {
-  position: fixed;
-
+  position: absolute; /* FIXED */
   top: 56.5%;
   left: 51.5%;
-
   transform: translate(-50%, -50%);
 
-  width: 44.5vw;
+  width: 690px;
   height: auto;
 
-  max-height: 100vh;
-
   object-fit: contain;
-
   z-index: 1;
   pointer-events: none;
-}
-
-@font-face {
-	font-family: "Silkscreen";
-	src: url(https://jmdietz12.github.io/behind-the-show/font/slkscr.ttf);
-	font-style: normal;
-	font-weight: normal;
-}
-
-#debug {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-
-  background: rgba(0, 0, 0, 0.8);
-  color: lime;
-
-  padding: 8px;
-  font-size: 14px;
-  font-family: monospace;
-
-  z-index: 9999;
 }
 
 #character-sprite {
@@ -2137,4 +2115,9 @@ body {
 
 #character-sprite img {
   width: 250px;
+}
+
+@font-face {
+  font-family: "Silkscreen";
+  src: url(https://jmdietz12.github.io/behind-the-show/font/slkscr.ttf);
 }
