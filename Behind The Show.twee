@@ -339,7 +339,6 @@ Behind The Show
 
 
 :: Dock {"position":"2200,300","size":"100,100"}
-<<set $bg = "videoPanel">>
 <<set $prevScene = $scene>>
 <<set $scene = "dock">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
@@ -945,6 +944,8 @@ Behind The Show
 
 
 :: Make a Deal {"position":"2475,850","size":"100,100"}
+<<set $prevScene = $scene>>
+<<set $scene = "driveway">>
 <<set $ratings = Math.max(0, Math.min($ratings, 10))>>
 <<set $funding = Math.max(0, Math.min($funding, 10))>>
 <div class="ratingsBar">
@@ -1001,7 +1002,7 @@ Behind The Show
   </div>
 </div>
 
-<span class="textbox">When Truman gets stopped by construction. He rolls down his window. He decides to ask what the workers are working on.</span>
+<span class="textbox">Truman gets stopped by construction. He rolls down his window. He decides to ask what the workers are working on.</span>
 
 <span class="bottom-left">[[Have them say they are demolishing this neighborhood ->Remember][$suspicion += 1]]</span>
 
@@ -1424,7 +1425,7 @@ Behind The Show
   </div>
 </div>
 
-<span class="textbox">Truman wakes up to a crash sound outside.</span>
+<span class="textbox">Truman wakes up to the sound of a set light crashing down outside.</span>
 
 <span class="bottom-left">[[Have clean up crew retrieve it as fast as possible ->Start Suspicion][$suspicion += 1]]</span>
 
